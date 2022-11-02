@@ -13,12 +13,16 @@ export class UsersService {
 
   async create(createUserDto: CreateUserDto) {
     const newUser = this.userRepository.create(createUserDto)
-
-    return await this.userRepository.save(newUser);
+    const { password, ...user } = await this.userRepository.save(newUser);
+    return user
   }
 
   findAll() {
     return this.userRepository.find();
+  }
+
+  findOneByEmail (email: string) {
+    return this.userRepository.findOneBy({ email })
   }
 
   findOne(id: number) {

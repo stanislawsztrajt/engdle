@@ -3,6 +3,7 @@ import {
   PrimaryGeneratedColumn,
   Column,
   ManyToOne,
+  Entity,
 } from 'typeorm';
 
 export class Language {
@@ -10,6 +11,7 @@ export class Language {
   public to: string;
 }
 
+@Entity()
 export class Text {
   @PrimaryGeneratedColumn()
   public id!: number;

@@ -9,6 +9,9 @@ import { TextsModule } from './modules/texts/texts.module';
 import { User } from 'modules/users/entities/user.entity';
 import { Text } from 'modules/texts/entities/text.entity';
 
+import * as dotenv from 'dotenv'
+dotenv.config()
+
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -21,7 +24,6 @@ import { Text } from 'modules/texts/entities/text.entity';
         username: configService.get('DB_USERNAME'),
         password: configService.get('DB_PASSWORD'),
         database: configService.get('DB_NAME'),
-        // entities: [__dirname, './modules/**/*.entity.ts'],
         entities: [User, Text],
         synchronize: true,
       }),
