@@ -1,26 +1,38 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import { CreateTextDto } from './dto/create-text.dto';
 import { UpdateTextDto } from './dto/update-text.dto';
+import { Text } from './entities/text.entity';
 
 @Injectable()
 export class TextsService {
+  constructor(
+    @InjectRepository(Text) private readonly userRepository: Repository<Text>
+  ) {}
+
   create(createTextDto: CreateTextDto) {
-    return 'This action adds a new text';
+    const newText = this.userRepository.create(createTextDto)
+    return this.userRepository.save(newText);
   }
 
   findAll() {
-    return `This action returns all texts`;
+    return this.userRepository.find({ relations: { user: true }, select: { user: { id: true, username: true, email: true } } });
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} text`;
+    return this.userRepository.findOne(
+      { where: { id }, 
+      relations: { user: true }, 
+      select: { user: { id: true, username: true, email: true } } });
   }
 
   update(id: number, updateTextDto: UpdateTextDto) {
-    return `This action updates a #${id} text`;
+    this.userRepository.update(id, updateTextDto);
+    return this.findOne(id)
   }
 
   remove(id: number) {
-    return `This action removes a #${id} text`;
+    return this.userRepository.delete(id)
   }
 }

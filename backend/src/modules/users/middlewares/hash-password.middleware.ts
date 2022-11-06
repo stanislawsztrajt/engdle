@@ -8,7 +8,9 @@ import { bcryptRounds } from 'utils/constants/bcrypt';
 @Injectable()
 export class HashPasswordMiddleware implements NestMiddleware {
   async use(req: Irequest<User>, res: Response, next: NextFunction) {
-    req.body.password = await bcrypt.hash(req.body.password, bcryptRounds)
+    if (req.body.password) {
+      req.body.password = await bcrypt.hash(req.body.password, bcryptRounds)
+    }
     next();
   }
 }

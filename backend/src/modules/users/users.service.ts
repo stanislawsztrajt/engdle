@@ -11,29 +11,31 @@ export class UsersService {
     @InjectRepository(User) private readonly userRepository: Repository<User>
   ) {}
 
-  async create(createUserDto: CreateUserDto) {
+  async create(createUserDto: CreateUserDto): Promise<User> {
     const newUser = this.userRepository.create(createUserDto)
     const { password, ...user } = await this.userRepository.save(newUser);
     return user
   }
 
-  findAll() {
-    return this.userRepository.find();
+  findAll(): Promise<User[]> {
+    return this.userRepository.find({ select: { id: true, username: true, email: true } });
   }
 
-  findOneByEmail (email: string) {
-    return this.userRepository.findOneBy({ email })
+  findOneByEmail (email: string): Promise<User> {
+    return this.userRepository.findOne({ where: { email }, select: { id: true, username: true, email: true } })
   }
 
-  findOne(id: number) {
+  findOne(id: number): Promise<User> {
     return this.userRepository.findOne({
       where: { id },
+      select: { id: true, username: true, email: true },
       relations: { texts: true },
     });
   }
 
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return this.userRepository.update(id, updateUserDto);
+  update(id: number, updateUserDto: UpdateUserDto): Promise<User> {
+    this.userRepository.update(id, updateUserDto);
+    return this.findOne(id);
   }
 
   remove(id: number) {
