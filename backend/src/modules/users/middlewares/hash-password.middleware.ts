@@ -1,9 +1,9 @@
 import { Injectable, NestMiddleware } from '@nestjs/common';
 import { Response, NextFunction } from 'express';
-import { Irequest } from 'utils/types';
+import { Irequest } from '../../../utils/types';
 import { User } from '../entities/user.entity';
 import * as bcrypt from 'bcrypt'
-import { bcryptRounds } from 'utils/constants/bcrypt';
+import { bcryptRounds } from '../../../utils/constants/bcrypt';
 
 @Injectable()
 export class HashPasswordMiddleware implements NestMiddleware {

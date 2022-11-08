@@ -4,7 +4,7 @@ import {
   OneToMany,
   PrimaryGeneratedColumn
 } from 'typeorm';
-import { Text } from 'modules/texts/entities/text.entity';
+import { Text } from '../../texts/entities/text.entity';
 
 @Entity()
 export class User {

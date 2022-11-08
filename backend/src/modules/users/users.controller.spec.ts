@@ -6,15 +6,14 @@ describe('UsersController', () => {
   let controller: UsersController;
 
   beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
-      controllers: [UsersController],
-      providers: [UsersService],
-    }).compile();
-
-    controller = module.get<UsersController>(UsersController);
+    controller = new UsersController(UsersService as any)
   });
 
   it('should be defined', () => {
     expect(controller).toBeDefined();
   });
+
+  // it('should return a lot of users', () => {
+  //   expect()
+  // })
 });

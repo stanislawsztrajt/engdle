@@ -3,7 +3,7 @@ import { TextsService } from './texts.service';
 import { TextsController } from './texts.controller';
 import { Text } from './entities/text.entity';
 import { TypeOrmModule } from '@nestjs/typeorm'
-import { SetUserMiddleware } from 'core/middlewares/set-user.middleware';
+import { SetUserMiddleware } from '../../core/middlewares/set-user.middleware';
 import { JwtService } from '@nestjs/jwt';
 
 @Module({

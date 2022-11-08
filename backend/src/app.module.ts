@@ -6,8 +6,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './modules/users/users.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { TextsModule } from './modules/texts/texts.module';
-import { User } from 'modules/users/entities/user.entity';
-import { Text } from 'modules/texts/entities/text.entity';
+import { User } from './modules/users/entities/user.entity';
+import { Text } from './modules/texts/entities/text.entity';
 
 import * as dotenv from 'dotenv'
 dotenv.config()

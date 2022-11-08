@@ -1,10 +1,10 @@
 import { Injectable, NestMiddleware } from '@nestjs/common';
 import { Response, NextFunction } from 'express';
-import { Irequest } from 'utils/types';
-import { Text } from 'modules/texts/entities/text.entity';
-import { parseJwt } from 'utils/helpers/jwt';
+import { Irequest } from '../../utils/types';
+import { Text } from '../../modules/texts/entities/text.entity';
+import { parseJwt } from '../../utils/helpers/jwt';
 import { JwtService } from '@nestjs/jwt';
-import { User } from 'modules/users/entities/user.entity';
+import { User } from '../../modules/users/entities/user.entity';
 
 @Injectable()
 export class SetUserMiddleware implements NestMiddleware {
