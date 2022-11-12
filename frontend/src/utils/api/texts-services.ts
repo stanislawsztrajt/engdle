@@ -1,22 +1,22 @@
-import axios from "axios";
-import { Itext } from "features/texts/types";
-import { authHeader } from "utils/constans";
+import axios from 'axios';
+import { IcreateText, Itext } from 'features/texts/types';
+import { authHeader } from 'utils/constans';
 
-const url = `${process.env.NEXT_PUBLIC_API_URL}/texts`;
+const url = `${process.env.REACT_APP_API_URL}/texts`;
 
-export class UsersServices {
+class TextsServices {
   async getAll(): Promise<Itext[]> {
     const { data } = await axios.get(url);
     return data;
   }
 
-  async getById(id: number) : Promise<Itext>{
+  async getById(id: number): Promise<Itext> {
     const { data } = await axios.get(`${url}/${id}`);
     return data;
   }
 
-  async create(text: Itext): Promise<Itext> {
-    const { data } = await axios.post(`${url}`, text);
+  async create(text: IcreateText): Promise<Itext> {
+    const { data } = await axios.post(`${url}`, text, authHeader);
     return data;
   }
 
@@ -31,5 +31,4 @@ export class UsersServices {
   }
 }
 
-export default new UsersServices();
-
+export default new TextsServices();

@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import UndrawCreate from 'assets/undraw/undraw_create.svg';
 import { Field, Form, Formik } from 'formik';
-import useRegister from 'features/auth/register/use-register';
+import useRegister from 'features/users/register/use-register';
 import { Loading } from 'features/ui';
 import { Link } from 'react-router-dom';
 

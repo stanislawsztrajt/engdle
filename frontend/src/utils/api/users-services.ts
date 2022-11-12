@@ -1,10 +1,10 @@
-import axios from "axios";
-import { Iuser } from "features/users/types";
+import axios from 'axios';
+import { IregisterUser, Iuser } from 'features/users/types';
 import { authHeader } from 'utils/constans';
 
 const url = `${process.env.REACT_APP_API_URL}/users`;
 
-export class UsersServices {
+class UsersServices {
   async getAll(): Promise<Iuser[]> {
     const { data } = await axios.get(url);
     return data;
@@ -15,7 +15,7 @@ export class UsersServices {
     return data;
   }
 
-  async create(user: Iuser): Promise<Iuser> {
+  async create(user: IregisterUser): Promise<Iuser> {
     const { data } = await axios.post(`${url}`, user);
     return data;
   }
@@ -32,4 +32,3 @@ export class UsersServices {
 }
 
 export default new UsersServices();
-

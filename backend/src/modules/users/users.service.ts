@@ -18,11 +18,11 @@ export class UsersService {
   }
 
   findAll(): Promise<User[]> {
-    return this.userRepository.find({ select: { id: true, username: true, email: true } });
+    return this.userRepository.find({ select: { id: true, username: true, email: true }, relations: { texts: true } });
   }
 
   findOneByEmail (email: string): Promise<User> {
-    return this.userRepository.findOne({ where: { email }, select: { id: true, username: true, email: true } })
+    return this.userRepository.findOne({ where: { email } })
   }
 
   findOne(id: number): Promise<User> {

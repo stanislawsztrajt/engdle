@@ -1,9 +1,9 @@
-import { IregisterForm } from '../types';
+import { IregisterForm } from '../../auth/types';
 import * as Yup from 'yup';
-import axios from 'axios';
 import { Ierror } from 'utils/types/api';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import UsersServices from 'utils/api/users-services';
 
 const initialValues: IregisterForm = {
   username: '',
@@ -33,7 +33,7 @@ const validationSchema = Yup.object({
     .required('Required'),
 });
 
-const useLogin = () => {
+const useRegister = () => {
   const navigate = useNavigate();
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -41,7 +41,8 @@ const useLogin = () => {
   const login = async (values: IregisterForm) => {
     setLoading(true);
     try {
-      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/users`, values);
+      const { repeatedPassword, ...data } = values;
+      await UsersServices.create(data);
 
       navigate('/auth/login');
     } catch (err) {
@@ -60,4 +61,4 @@ const useLogin = () => {
   };
 };
 
-export default useLogin;
+export default useRegister;

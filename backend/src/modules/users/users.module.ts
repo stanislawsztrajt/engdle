@@ -4,11 +4,12 @@ import { UsersController } from './users.controller';
 import { User } from './entities/user.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { HashPasswordMiddleware } from './middlewares/hash-password.middleware';
+import { JwtService } from '@nestjs/jwt';
 
 @Module({
   imports: [TypeOrmModule.forFeature([User])],
   controllers: [UsersController],
-  providers: [UsersService],
+  providers: [UsersService, JwtService],
   exports: [UsersService]
 })
 export class UsersModule implements NestModule {

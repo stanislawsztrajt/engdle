@@ -69,7 +69,7 @@ const Login: FC = () => {
                           Remember me
                         </label>
                       </div>
-                      
+
                       <Link to={'/auth/register'}>
                         <span className="underline duration-100 cursor-pointer hover:text-indigo-600">
                           Register

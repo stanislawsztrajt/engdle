@@ -1,406 +1,406 @@
 export const languages = [
   {
-      "name": " Russian",
-      "code": "ru"
+    name: ' Russian',
+    code: 'ru',
   },
   {
-      "name": " Azerbaijanian",
-      "code": "az"
+    name: ' Azerbaijanian',
+    code: 'az',
   },
   {
-      "name": " Albanian",
-      "code": "sq"
+    name: ' Albanian',
+    code: 'sq',
   },
   {
-      "name": " Amharic",
-      "code": "am"
+    name: ' Amharic',
+    code: 'am',
   },
   {
-      "name": " English",
-      "code": "en"
+    name: ' English',
+    code: 'en',
   },
   {
-      "name": " Arabian",
-      "code": "ar"
+    name: ' Arabian',
+    code: 'ar',
   },
   {
-      "name": " Armenian",
-      "code": "hy"
+    name: ' Armenian',
+    code: 'hy',
   },
   {
-      "name": " Afrikaans",
-      "code": "af"
+    name: ' Afrikaans',
+    code: 'af',
   },
   {
-      "name": " Basque",
-      "code": "eu"
+    name: ' Basque',
+    code: 'eu',
   },
   {
-      "name": " Bashkir",
-      "code": "ba"
+    name: ' Bashkir',
+    code: 'ba',
   },
   {
-      "name": " Belarusian",
-      "code": "be"
+    name: ' Belarusian',
+    code: 'be',
   },
   {
-      "name": " Bengali",
-      "code": "bn"
+    name: ' Bengali',
+    code: 'bn',
   },
   {
-      "name": " Burmese",
-      "code": "my"
+    name: ' Burmese',
+    code: 'my',
   },
   {
-      "name": " Bulgarian",
-      "code": "bg"
+    name: ' Bulgarian',
+    code: 'bg',
   },
   {
-      "name": " Bosnian",
-      "code": "bs"
+    name: ' Bosnian',
+    code: 'bs',
   },
   {
-      "name": " Welsh",
-      "code": "cy"
+    name: ' Welsh',
+    code: 'cy',
   },
   {
-      "name": " Hungarian",
-      "code": "hu"
+    name: ' Hungarian',
+    code: 'hu',
   },
   {
-      "name": " Vietnamese",
-      "code": "vi"
+    name: ' Vietnamese',
+    code: 'vi',
   },
   {
-      "name": " Haitian",
-      "code": "ht"
+    name: ' Haitian',
+    code: 'ht',
   },
   {
-      "name": " Galician",
-      "code": "gl"
+    name: ' Galician',
+    code: 'gl',
   },
   {
-      "name": " Gornomariyskiy",
-      "code": "mrj"
+    name: ' Gornomariyskiy',
+    code: 'mrj',
   },
   {
-      "name": " Greek",
-      "code": "el"
+    name: ' Greek',
+    code: 'el',
   },
   {
-      "name": " Georgian",
-      "code": "ka"
+    name: ' Georgian',
+    code: 'ka',
   },
   {
-      "name": " Gujarati",
-      "code": "gu"
+    name: ' Gujarati',
+    code: 'gu',
   },
   {
-      "name": " Danish",
-      "code": "da"
+    name: ' Danish',
+    code: 'da',
   },
   {
-      "name": " Zulu",
-      "code": "zu"
+    name: ' Zulu',
+    code: 'zu',
   },
   {
-      "name": " Hebrew",
-      "code": "he"
+    name: ' Hebrew',
+    code: 'he',
   },
   {
-      "name": " Yiddish",
-      "code": "yi"
+    name: ' Yiddish',
+    code: 'yi',
   },
   {
-      "name": " Indonesian",
-      "code": "id"
+    name: ' Indonesian',
+    code: 'id',
   },
   {
-      "name": " Irish",
-      "code": "ga"
+    name: ' Irish',
+    code: 'ga',
   },
   {
-      "name": " Icelandic",
-      "code": "is"
+    name: ' Icelandic',
+    code: 'is',
   },
   {
-      "name": " Spanish",
-      "code": "es"
+    name: ' Spanish',
+    code: 'es',
   },
   {
-      "name": " Italian",
-      "code": "it"
+    name: ' Italian',
+    code: 'it',
   },
   {
-      "name": " Kazakh",
-      "code": "kk"
+    name: ' Kazakh',
+    code: 'kk',
   },
   {
-      "name": " Kazakh (lat.)",
-      "code": "kazlat"
+    name: ' Kazakh (lat.)',
+    code: 'kazlat',
   },
   {
-      "name": " Canadian",
-      "code": "kn"
+    name: ' Canadian',
+    code: 'kn',
   },
   {
-      "name": " Catalan",
-      "code": "ca"
+    name: ' Catalan',
+    code: 'ca',
   },
   {
-      "name": " Kyrgyz",
-      "code": "ky"
+    name: ' Kyrgyz',
+    code: 'ky',
   },
   {
-      "name": " Chinese",
-      "code": "zh"
+    name: ' Chinese',
+    code: 'zh',
   },
   {
-      "name": " Korean",
-      "code": "ko"
+    name: ' Korean',
+    code: 'ko',
   },
   {
-      "name": " Xhosa",
-      "code": "xh"
+    name: ' Xhosa',
+    code: 'xh',
   },
   {
-      "name": " Kmerian",
-      "code": "km"
+    name: ' Kmerian',
+    code: 'km',
   },
   {
-      "name": " Laotian",
-      "code": "lo"
+    name: ' Laotian',
+    code: 'lo',
   },
   {
-      "name": " Latin",
-      "code": "la"
+    name: ' Latin',
+    code: 'la',
   },
   {
-      "name": " Latvian ",
-      "code": "lv"
+    name: ' Latvian ',
+    code: 'lv',
   },
   {
-      "name": " Lithuanian",
-      "code": "lt"
+    name: ' Lithuanian',
+    code: 'lt',
   },
   {
-      "name": " Luxembourgish",
-      "code": "lb"
+    name: ' Luxembourgish',
+    code: 'lb',
   },
   {
-      "name": " Macedonian",
-      "code": "mk"
+    name: ' Macedonian',
+    code: 'mk',
   },
   {
-      "name": " Malagasy",
-      "code": "mg"
+    name: ' Malagasy',
+    code: 'mg',
   },
   {
-      "name": " ម៉ាឡេ",
-      "code": "ms"
+    name: ' ម៉ាឡេ',
+    code: 'ms',
   },
   {
-      "name": " Malayalam",
-      "code": "ml"
+    name: ' Malayalam',
+    code: 'ml',
   },
   {
-      "name": " Maltese",
-      "code": "mt"
+    name: ' Maltese',
+    code: 'mt',
   },
   {
-      "name": " Māori",
-      "code": "mi"
+    name: ' Māori',
+    code: 'mi',
   },
   {
-      "name": " Marathi",
-      "code": "mr"
+    name: ' Marathi',
+    code: 'mr',
   },
   {
-      "name": " Marii",
-      "code": "mhr"
+    name: ' Marii',
+    code: 'mhr',
   },
   {
-      "name": " Mongolian",
-      "code": "mn"
+    name: ' Mongolian',
+    code: 'mn',
   },
   {
-      "name": " Deutch",
-      "code": "de"
+    name: ' Deutch',
+    code: 'de',
   },
   {
-      "name": " Nepali",
-      "code": "ne"
+    name: ' Nepali',
+    code: 'ne',
   },
   {
-      "name": " Dutch",
-      "code": "nl"
+    name: ' Dutch',
+    code: 'nl',
   },
   {
-      "name": " Norwegian Bokmål",
-      "code": "no"
+    name: ' Norwegian Bokmål',
+    code: 'no',
   },
   {
-      "name": " Punjabi",
-      "code": "pa"
+    name: ' Punjabi',
+    code: 'pa',
   },
   {
-      "name": " Papiamentu",
-      "code": "pap"
+    name: ' Papiamentu',
+    code: 'pap',
   },
   {
-      "name": " Persian",
-      "code": "fa"
+    name: ' Persian',
+    code: 'fa',
   },
   {
-      "name": " Polish",
-      "code": "pl"
+    name: ' Polish',
+    code: 'pl',
   },
   {
-      "name": " Portugal",
-      "code": "pt"
+    name: ' Portugal',
+    code: 'pt',
   },
   {
-      "name": " Romanian",
-      "code": "ro"
+    name: ' Romanian',
+    code: 'ro',
   },
   {
-      "name": " Russian",
-      "code": "ru"
+    name: ' Russian',
+    code: 'ru',
   },
   {
-      "name": " Cebuano",
-      "code": "ceb"
+    name: ' Cebuano',
+    code: 'ceb',
   },
   {
-      "name": " Serbian",
-      "code": "sr"
+    name: ' Serbian',
+    code: 'sr',
   },
   {
-      "name": " Sinhalese",
-      "code": "si"
+    name: ' Sinhalese',
+    code: 'si',
   },
   {
-      "name": " Slovak",
-      "code": "sk"
+    name: ' Slovak',
+    code: 'sk',
   },
   {
-      "name": " Slovenian",
-      "code": "sl"
+    name: ' Slovenian',
+    code: 'sl',
   },
   {
-      "name": " Swahili",
-      "code": "sw"
+    name: ' Swahili',
+    code: 'sw',
   },
   {
-      "name": " Sundanese",
-      "code": "su"
+    name: ' Sundanese',
+    code: 'su',
   },
   {
-      "name": " Tagalog",
-      "code": "tl"
+    name: ' Tagalog',
+    code: 'tl',
   },
   {
-      "name": " Tajik",
-      "code": "tg"
+    name: ' Tajik',
+    code: 'tg',
   },
   {
-      "name": " ថៃ",
-      "code": "th"
+    name: ' ថៃ',
+    code: 'th',
   },
   {
-      "name": " តាមីល",
-      "code": "ta"
+    name: ' តាមីល',
+    code: 'ta',
   },
   {
-      "name": " Tatar",
-      "code": "tt"
+    name: ' Tatar',
+    code: 'tt',
   },
   {
-      "name": " Telugu",
-      "code": "te"
+    name: ' Telugu',
+    code: 'te',
   },
   {
-      "name": " Turkish",
-      "code": "tr"
+    name: ' Turkish',
+    code: 'tr',
   },
   {
-      "name": " Udmurt",
-      "code": "udm"
+    name: ' Udmurt',
+    code: 'udm',
   },
   {
-      "name": " Uzbek",
-      "code": "uz"
+    name: ' Uzbek',
+    code: 'uz',
   },
   {
-      "name": " Uzbek (cyr.)",
-      "code": "uzbcyr"
+    name: ' Uzbek (cyr.)',
+    code: 'uzbcyr',
   },
   {
-      "name": " Ukrainian",
-      "code": "uk"
+    name: ' Ukrainian',
+    code: 'uk',
   },
   {
-      "name": " Urdu",
-      "code": "ur"
+    name: ' Urdu',
+    code: 'ur',
   },
   {
-      "name": " Finnish",
-      "code": "fi"
+    name: ' Finnish',
+    code: 'fi',
   },
   {
-      "name": " French",
-      "code": "fr"
+    name: ' French',
+    code: 'fr',
   },
   {
-      "name": " Hindi",
-      "code": "hi"
+    name: ' Hindi',
+    code: 'hi',
   },
   {
-      "name": " Croatian",
-      "code": "hr"
+    name: ' Croatian',
+    code: 'hr',
   },
   {
-      "name": " Czech",
-      "code": "cs"
+    name: ' Czech',
+    code: 'cs',
   },
   {
-      "name": " Chuvash",
-      "code": "cv"
+    name: ' Chuvash',
+    code: 'cv',
   },
   {
-      "name": " Swedish",
-      "code": "sv"
+    name: ' Swedish',
+    code: 'sv',
   },
   {
-      "name": " Scots Gaelic",
-      "code": "gd"
+    name: ' Scots Gaelic',
+    code: 'gd',
   },
   {
-      "name": " Elvish (Sindarin)",
-      "code": "sjn"
+    name: ' Elvish (Sindarin)',
+    code: 'sjn',
   },
   {
-      "name": " Emoji",
-      "code": "emj"
+    name: ' Emoji',
+    code: 'emj',
   },
   {
-      "name": " Esperanto",
-      "code": "eo"
+    name: ' Esperanto',
+    code: 'eo',
   },
   {
-      "name": " Estonian",
-      "code": "et"
+    name: ' Estonian',
+    code: 'et',
   },
   {
-      "name": " Javanese",
-      "code": "jv"
+    name: ' Javanese',
+    code: 'jv',
   },
   {
-      "name": " Yakut",
-      "code": "sah"
+    name: ' Yakut',
+    code: 'sah',
   },
   {
-      "name": " Japanese",
-      "code": "ja"
-  }
-]
+    name: ' Japanese',
+    code: 'ja',
+  },
+];

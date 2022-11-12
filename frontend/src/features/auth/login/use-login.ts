@@ -4,7 +4,8 @@ import axios from 'axios';
 import { Ierror } from 'utils/types/api';
 import { useState } from 'react';
 import Cookies from 'js-cookie';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import authServices from 'utils/api/auth-services';
 
 const initialValues: IloginForm = {
   email: '',
@@ -34,10 +35,7 @@ const useLogin = () => {
     setLoading(true);
     try {
       const { isRemember, ...loginValues } = values;
-      const { data }: IloginResponseData = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/auth/login`,
-        loginValues
-      );
+      const data = await authServices.login(loginValues);
 
       // if the user checked "Remember me", user will not be logged out else user will be logged out after 7 days
       const expires = isRemember ? 999999999999999 : 7;
@@ -46,8 +44,7 @@ const useLogin = () => {
       Cookies.set('user', JSON.stringify(data.user), { expires });
 
       navigate('/dashboard');
-      navigate(0) // reloading
-
+      navigate(0); // reloading
     } catch (err) {
       const { response } = err as Ierror;
       setError(response.data.message);

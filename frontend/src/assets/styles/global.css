@@ -6,6 +6,8 @@
 
 body {
   font-family: poppins, sans-serif, monospace;
+  color: black;
+  background-color: white;
 }
 
 .button {

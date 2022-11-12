@@ -18,17 +18,23 @@ export class AuthService {
       throw new UnauthorizedException()
     }
 
-    const isPasswordMatch = await bcrypt.compare(password, user.password)
-    if (user && isPasswordMatch) {
-      const { password, ...result } = user;
-      return result;
+    try {
+      const isPasswordMatch = await bcrypt.compare(password, user.password)
+      if (user && isPasswordMatch) {
+        const { password, ...result } = user;
+        return result;
+      }
+    } catch {
+      throw new UnauthorizedException()
     }
-
-    throw new UnauthorizedException()
   }
 
   async login(loginDto: LoginDto) {
     const payload = await this.validateUser(loginDto);
+    console.log(payload)
+    if (!payload) {
+      throw new UnauthorizedException()
+    }
 
     return {
       jwt: this.jwtService.sign(payload),
