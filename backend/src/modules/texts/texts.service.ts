@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateTextDto } from './dto/create-text.dto';
@@ -11,7 +11,12 @@ export class TextsService {
     @InjectRepository(Text) private readonly userRepository: Repository<Text>
   ) {}
 
-  create(createTextDto: CreateTextDto) {
+  async create(createTextDto: CreateTextDto) {
+    const texts = await this.userRepository.find({ where: { user: { id: createTextDto.user.id } }, select: { text: true } })
+    if (texts.some(text => text.text.toLocaleLowerCase() === createTextDto.text.toLocaleLowerCase() && text.translatedText.toLocaleLowerCase() === createTextDto.translatedText.toLocaleLowerCase())) {
+      throw new HttpException({ message: 'Text already exists'}, 400)
+    }
+
     const newText = this.userRepository.create(createTextDto)
     return this.userRepository.save(newText);
   }
@@ -22,9 +27,11 @@ export class TextsService {
 
   findOne(id: number) {
     return this.userRepository.findOne(
-      { where: { id }, 
-      relations: { user: true }, 
-      select: { user: { id: true, username: true, email: true } } });
+      {
+        where: { id },
+        relations: { user: true }, 
+        select: { user: { id: true, username: true, email: true } },
+      });
   }
 
   update(id: number, updateTextDto: UpdateTextDto) {

@@ -1,4 +1,5 @@
 import { IsString, MaxLength } from "class-validator";
+import { User } from "../../users/entities/user.entity";
 
 export class Language {
   @IsString()
@@ -18,4 +19,6 @@ export class CreateTextDto {
   public translatedText: string;
 
   public language: Language;
+
+  public user: User;
 }

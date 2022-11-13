@@ -3,7 +3,7 @@ import LanguagesSelect from '../languages-select';
 import useCreateTextForm from './use-create-text-form';
 
 const CreateTextForm: FC = () => {
-  const { text, changeLanguageFrom, changeLanguageTo, setText, createText, swapLanguages } =
+  const { error, text, changeLanguageFrom, changeLanguageTo, setText, createText, swapLanguages } =
     useCreateTextForm();
 
   return (
@@ -20,6 +20,7 @@ const CreateTextForm: FC = () => {
         <div onClick={swapLanguages}>
           {'->'} {'<-'}
         </div>
+        { error }
         <LanguagesSelect language={text.language.from} changeLanguage={changeLanguageFrom} />
         <LanguagesSelect language={text.language.to} changeLanguage={changeLanguageTo} />
         <button onClick={createText} type="button">Save</button>

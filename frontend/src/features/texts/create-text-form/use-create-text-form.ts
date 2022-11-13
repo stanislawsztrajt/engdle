@@ -1,15 +1,17 @@
 import { debounce } from 'lodash';
 import { useCallback, useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import aiTranslateServices from 'utils/api/ai-translate-services';
 import textsServices from 'utils/api/texts-services';
-import { addText } from '../slice/texts-slice';
+import { addText, getTexts } from '../slice/texts-slice';
 import { IcreateText } from '../types';
 
 
 const useCreateTextForm = () => {
   const dispatch = useDispatch();
+  const texts = useSelector(getTexts)
 
+  const [error, setError] = useState('')
   const [text, setText] = useState<IcreateText>({
     text: '',
     translatedText: '',
@@ -38,11 +40,19 @@ const useCreateTextForm = () => {
   };
 
   const changeLanguageFrom = (languageCode: string) => {
+    if (languageCode === text.language.to) {
+      return swapLanguages()
+    }
+
     text.language.from = languageCode;
     translateText(text);
   };
 
   const changeLanguageTo = (languageCode: string) => {
+    if (languageCode === text.language.from) {
+      return swapLanguages()
+    }
+
     text.language.to = languageCode;
     translateText(text);
   };
@@ -60,14 +70,20 @@ const useCreateTextForm = () => {
     setText({ ...text, ...swappedLanguages });
   };
 
-  const createText = () => {
-    dispatch(addText(text));
-    textsServices.create(text);
+  const createText = async () => {
+    if (texts.some(prevText => prevText.text.toLocaleLowerCase() === text.text.toLocaleLowerCase() && prevText.translatedText.toLocaleLowerCase() === text.translatedText.toLocaleLowerCase())) {
+      return setError('Text already exists')
+    }
+
+    const data = await textsServices.create(text);
+    dispatch(addText(data));
+    setError('')
   };
 
   const debouncedTranslateText = useCallback(debounce(translateText, 1000), []);
 
   useEffect(() => {
+    setError('')
     if (text.text === '') {
       return;
     }
@@ -78,6 +94,7 @@ const useCreateTextForm = () => {
 
   return {
     text,
+    error,
     changeLanguageFrom,
     changeLanguageTo,
     setText,

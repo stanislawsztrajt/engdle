@@ -8,13 +8,22 @@ export interface IaiTranslateResponse {
   available_chars: number;
 }
 
+export interface Ierror {
+  message: string;
+}
+
 class AiTranslateService {
   async translateText(
     languageFrom: string,
     languageTo: string,
     text: string
   ): Promise<IaiTranslateResponse> {
-    const { data } = await axios.post(`${url}/${languageFrom}-${languageTo}`, { text }, authHeader);
+    const { data }: { data: IaiTranslateResponse } = await axios.post(`${url}/${languageFrom}-${languageTo}`, { text }, authHeader);
+
+    if (data.result) {
+      data.result = data.result.toLocaleLowerCase()
+    }
+
     return data;
   }
 }
