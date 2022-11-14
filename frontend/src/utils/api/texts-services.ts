@@ -21,10 +21,10 @@ class TextsServices {
   }
 
   async update(id: number, text: Partial<Itext>): Promise<Itext> {
-    console.log(id)
-    console.log(text)
+    console.log(id);
+    console.log(text);
     const { data } = await axios.patch(`${url}/${id}`, text, authHeader);
-    console.log(data)
+    console.log(data);
     return data;
   }
 

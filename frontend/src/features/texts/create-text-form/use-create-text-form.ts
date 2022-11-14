@@ -6,12 +6,11 @@ import textsServices from 'utils/api/texts-services';
 import { addText, getTexts } from '../slice/texts-slice';
 import { IcreateText } from '../types';
 
-
 const useCreateTextForm = () => {
   const dispatch = useDispatch();
-  const texts = useSelector(getTexts)
+  const texts = useSelector(getTexts);
 
-  const [error, setError] = useState('')
+  const [error, setError] = useState('');
   const [text, setText] = useState<IcreateText>({
     text: '',
     translatedText: '',
@@ -41,7 +40,7 @@ const useCreateTextForm = () => {
 
   const changeLanguageFrom = (languageCode: string) => {
     if (languageCode === text.language.to) {
-      return swapLanguages()
+      return swapLanguages();
     }
 
     text.language.from = languageCode;
@@ -50,7 +49,7 @@ const useCreateTextForm = () => {
 
   const changeLanguageTo = (languageCode: string) => {
     if (languageCode === text.language.from) {
-      return swapLanguages()
+      return swapLanguages();
     }
 
     text.language.to = languageCode;
@@ -71,26 +70,31 @@ const useCreateTextForm = () => {
   };
 
   const createText = async () => {
-    if (texts.some(prevText => prevText.text.toLocaleLowerCase() === text.text.toLocaleLowerCase() && prevText.translatedText.toLocaleLowerCase() === text.translatedText.toLocaleLowerCase())) {
-      return setError('Text already exists')
+    if (
+      texts.some(
+        (prevText) =>
+          prevText.text.toLocaleLowerCase() === text.text.toLocaleLowerCase() &&
+          prevText.translatedText.toLocaleLowerCase() === text.translatedText.toLocaleLowerCase()
+      )
+    ) {
+      return setError('Text already exists');
     }
 
     const data = await textsServices.create(text);
     dispatch(addText(data));
-    setError('')
+    setError('');
   };
 
-  const debouncedTranslateText = useCallback(debounce(translateText, 1000), []);
+  const debouncedTranslateText = useCallback(debounce(translateText, 500), []);
 
   useEffect(() => {
-    setError('')
+    setError('');
     if (text.text === '') {
       return;
     }
 
     debouncedTranslateText(text);
   }, [text.text]);
-
 
   return {
     text,

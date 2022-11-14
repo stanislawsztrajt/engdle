@@ -20,10 +20,12 @@ const CreateTextForm: FC = () => {
         <div onClick={swapLanguages}>
           {'->'} {'<-'}
         </div>
-        { error }
+        {error}
         <LanguagesSelect language={text.language.from} changeLanguage={changeLanguageFrom} />
         <LanguagesSelect language={text.language.to} changeLanguage={changeLanguageTo} />
-        <button onClick={createText} type="button">Save</button>
+        <button onClick={createText} type="button">
+          Save
+        </button>
       </form>
     </div>
   );

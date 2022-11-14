@@ -11,11 +11,7 @@ const TextList: FC<Props> = ({ texts }) => {
     return <TextItem key={text.id + Math.random()} text={text} />;
   });
 
-  return (
-    <>
-      {texts.length === 0 ? <div>You don&apos;t have any text</div> : textsList}
-    </>
-  );
+  return <>{texts.length === 0 ? <div>You don&apos;t have any text</div> : textsList}</>;
 };
 
 export default TextList;

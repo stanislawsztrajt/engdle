@@ -18,10 +18,14 @@ class AiTranslateService {
     languageTo: string,
     text: string
   ): Promise<IaiTranslateResponse> {
-    const { data }: { data: IaiTranslateResponse } = await axios.post(`${url}/${languageFrom}-${languageTo}`, { text }, authHeader);
+    const { data }: { data: IaiTranslateResponse } = await axios.post(
+      `${url}/${languageFrom}-${languageTo}`,
+      { text },
+      authHeader
+    );
 
     if (data.result) {
-      data.result = data.result.toLocaleLowerCase()
+      data.result = data.result.toLocaleLowerCase();
     }
 
     return data;

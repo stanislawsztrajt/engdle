@@ -20,3 +20,9 @@ export interface IcreateText {
   translatedText: string;
   language: Ilanguage;
 }
+
+export enum SortTypes {
+  ALPHABETICALLY = 'alphabetically',
+  LATEST = 'latest',
+  OLDEST = 'oldest',
+}
