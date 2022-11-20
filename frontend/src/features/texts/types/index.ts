@@ -26,3 +26,7 @@ export enum SortTypes {
   LATEST = 'latest',
   OLDEST = 'oldest',
 }
+
+export type SortType = SortTypes.ALPHABETICALLY | SortTypes.LATEST | SortTypes.OLDEST
+
+export const SortTypesList = Object.values(SortTypes)

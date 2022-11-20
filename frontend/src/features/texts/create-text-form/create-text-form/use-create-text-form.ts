@@ -1,10 +1,10 @@
 import { debounce } from 'lodash';
 import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import aiTranslateServices from 'utils/api/ai-translate-services';
+import deeplTranslatorServices from 'utils/api/deepl-translator-services';
 import textsServices from 'utils/api/texts-services';
-import { addText, getTexts } from '../slice/texts-slice';
-import { IcreateText } from '../types';
+import { addText, getTexts } from '../../slice/texts-slice';
+import { IcreateText } from '../../types';
 
 const useCreateTextForm = () => {
   const dispatch = useDispatch();
@@ -21,15 +21,15 @@ const useCreateTextForm = () => {
   });
 
   const translateText = async (currentText: IcreateText) => {
-    const { result } = await aiTranslateServices.translateText(
+    const data = await deeplTranslatorServices.translateText(
       currentText.language.from,
       currentText.language.to,
-      currentText.text
+      [currentText.text.toLowerCase()]
     );
 
     setText({
       ...text,
-      translatedText: result,
+      translatedText: data.text,
       text: currentText.text,
       language: {
         from: currentText.language.from,
@@ -44,6 +44,11 @@ const useCreateTextForm = () => {
     }
 
     text.language.from = languageCode;
+
+    if (text.text === '') {
+      return;
+    }
+    
     translateText(text);
   };
 
@@ -53,6 +58,11 @@ const useCreateTextForm = () => {
     }
 
     text.language.to = languageCode;
+
+    if (text.text === '') {
+      return;
+    }
+
     translateText(text);
   };
 
@@ -85,7 +95,7 @@ const useCreateTextForm = () => {
     setError('');
   };
 
-  const debouncedTranslateText = useCallback(debounce(translateText, 500), []);
+  const debouncedTranslateText = useCallback(debounce(translateText, 1000), []);
 
   useEffect(() => {
     setError('');

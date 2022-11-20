@@ -1,13 +1,16 @@
-import { Itext } from '../types';
+import { ResponseStatus, StatusType } from 'utils/types/api';
+import { Ilanguage, Itext } from '../types';
 
 export interface ItextsInitialStateSlice {
   texts: Itext[];
   textsCopy: Itext[];
-  status: 'loading' | 'failed' | 'succeeded';
+  usedLanguages: Ilanguage[]
+  status: StatusType;
 }
 
 export const textsInitialStateSlice: ItextsInitialStateSlice = {
   texts: [],
   textsCopy: [],
-  status: 'loading',
+  usedLanguages: [],
+  status: ResponseStatus.LOADING,
 };

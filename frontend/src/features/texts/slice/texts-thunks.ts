@@ -8,7 +8,5 @@ export const fetchTexts = createAsyncThunk('users', async () => {
 });
 
 export const fetchUserTexts = createAsyncThunk('user texts', async (id: number) => {
-  return (await (
-    await usersServices.getById(id)
-  ).texts) as Itext[];
+  return (await usersServices.getById(id)).texts as Itext[];
 });
