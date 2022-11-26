@@ -27,6 +27,11 @@ export enum SortTypes {
   OLDEST = 'oldest',
 }
 
-export type SortType = SortTypes.ALPHABETICALLY | SortTypes.LATEST | SortTypes.OLDEST
+export type SortType = SortTypes.ALPHABETICALLY | SortTypes.LATEST | SortTypes.OLDEST;
 
-export const SortTypesList = Object.values(SortTypes)
+export const SortTypesList = Object.values(SortTypes);
+
+export interface IfilterTextsOptions {
+  languages: Ilanguage[];
+  text: string;
+}

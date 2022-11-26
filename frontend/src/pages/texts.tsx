@@ -1,7 +1,13 @@
 import React, { FC } from 'react';
 import { getTexts } from 'features/texts/slice/texts-slice';
 import { useSelector } from 'react-redux';
-import { CreateTextForm, SortTextsSelect, TextList, SearchTextInput } from 'features/texts';
+import {
+  CreateTextForm,
+  SortTextsSelect,
+  TextList,
+  SearchTextInput,
+  TextsLanguagesFilters,
+} from 'features/texts';
 
 const Texts: FC = () => {
   const texts = useSelector(getTexts);
@@ -15,6 +21,7 @@ const Texts: FC = () => {
       <section>
         <SortTextsSelect />
         <SearchTextInput />
+        <TextsLanguagesFilters />
       </section>
       <section>
         <TextList texts={texts} />

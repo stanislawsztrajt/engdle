@@ -12,8 +12,10 @@ export class SetUserMiddleware implements NestMiddleware {
     private jwtService: JwtService
   ) {}
   async use(req: Irequest<Text>, res: Response, next: NextFunction) {
-    const jwt: string = parseJwt(req.headers.authorization)
-    req.body.user = this.jwtService.decode(jwt) as User
+    if(req.headers.authorization) {
+      const jwt: string = parseJwt(req.headers.authorization)
+      req.body.user = this.jwtService.decode(jwt) as User
+    }
     next();
   }
 }

@@ -1,4 +1,5 @@
-import { IsString, MaxLength } from "class-validator";
+import { IsString, MaxLength, MinLength } from "class-validator";
+import { maxLengthText, minLengthText } from "../../../utils/constants";
 import { User } from "../../users/entities/user.entity";
 
 export class Language {
@@ -11,11 +12,13 @@ export class Language {
 
 export class CreateTextDto {
   @IsString()
-  @MaxLength(150)
+  @MinLength(minLengthText)
+  @MaxLength(maxLengthText)
   public text: string;
 
   @IsString()
-  @MaxLength(150)
+  @MinLength(minLengthText)
+  @MaxLength(maxLengthText)
   public translatedText: string;
 
   public language: Language;

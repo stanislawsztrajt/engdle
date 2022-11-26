@@ -6,16 +6,23 @@ import { SortType, SortTypes, SortTypesList } from '../types';
 const SortTextsSelect: FC = () => {
   const dispatch = useDispatch();
 
-  const optionsList = SortTypesList.map(sortType => {
+  const optionsList = SortTypesList.map((sortType) => {
     return (
-      <option key={sortType} value={sortType}>{sortType}</option>
-    )
-  })
+      <option key={sortType} value={sortType}>
+        {sortType}
+      </option>
+    );
+  });
 
   return (
     <div>
       Sort by
-      <select defaultValue={SortTypes.LATEST} onChange={(e) => dispatch(sortTextsBy(e.target.value as SortType))} name="" id="">
+      <select
+        defaultValue={SortTypes.LATEST}
+        onChange={(e) => dispatch(sortTextsBy(e.target.value as SortType))}
+        name=""
+        id=""
+      >
         {optionsList}
       </select>
     </div>

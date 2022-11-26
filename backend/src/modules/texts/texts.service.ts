@@ -13,7 +13,7 @@ export class TextsService {
 
   async create(createTextDto: CreateTextDto) {
     const texts = await this.userRepository.find({ where: { user: { id: createTextDto.user.id } }, select: { text: true } })
-    if (texts.some(text => text.text.toLocaleLowerCase() === createTextDto.text.toLocaleLowerCase() && text.translatedText.toLocaleLowerCase() === createTextDto.translatedText.toLocaleLowerCase())) {
+    if (texts.some(text => text.text.toLowerCase() === createTextDto.text.toLowerCase() && text.translatedText.toLowerCase() === createTextDto.translatedText.toLowerCase())) {
       throw new HttpException({ message: 'Text already exists'}, 400)
     }
 

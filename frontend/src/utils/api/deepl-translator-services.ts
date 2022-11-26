@@ -1,4 +1,4 @@
-import deepl, { DeeplLanguages } from 'deepl'
+import deepl, { DeeplLanguages } from 'deepl';
 
 export interface IDeeplValues {
   detected_source_language: string;
@@ -6,7 +6,7 @@ export interface IDeeplValues {
 }
 
 export interface IDeeplTranslatorResponse {
-  translations: IDeeplValues[]
+  translations: IDeeplValues[];
 }
 
 export interface Ierror {
@@ -19,15 +19,16 @@ class DeeplTranslatorService {
     languageTo: string,
     text: string[]
   ): Promise<IDeeplValues> {
-    
-    const { data: { translations } } = await deepl({
+    const {
+      data: { translations },
+    } = await deepl({
       free_api: true,
       text: text[0],
       target_lang: languageTo as DeeplLanguages,
       source_lang: languageFrom as DeeplLanguages,
-      auth_key: process.env.REACT_APP_DEEPL_TRANSLATOR_API_KEY as string
-    })
-    
+      auth_key: process.env.REACT_APP_DEEPL_TRANSLATOR_API_KEY as string,
+    });
+
     return translations[0];
   }
 }

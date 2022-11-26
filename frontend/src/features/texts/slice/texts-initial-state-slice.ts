@@ -1,16 +1,19 @@
 import { ResponseStatus, StatusType } from 'utils/types/api';
-import { Ilanguage, Itext } from '../types';
+import { IfilterTextsOptions, Itext } from '../types';
 
 export interface ItextsInitialStateSlice {
   texts: Itext[];
   textsCopy: Itext[];
-  usedLanguages: Ilanguage[]
+  filterTextsOptions: IfilterTextsOptions;
   status: StatusType;
 }
 
 export const textsInitialStateSlice: ItextsInitialStateSlice = {
   texts: [],
   textsCopy: [],
-  usedLanguages: [],
   status: ResponseStatus.LOADING,
+  filterTextsOptions: {
+    languages: [],
+    text: '',
+  },
 };

@@ -7,4 +7,3 @@ test('should render TextsLanguagesFilters', () => {
 
   expect(getByText('')).toBeInTheDocument();
 });
-  

@@ -1,15 +1,26 @@
-import React, { FC } from 'react'
-import { useDispatch } from 'react-redux'
+import React, { FC } from 'react';
+import useTextsLanguagesFilters from './use-texts-languages-filters';
 
 const TextsLanguagesFilters: FC = () => {
-  const dispatch = useDispatch()
-  
+  const {
+    usedLanguages,
+    onCheckboxChange
+  } = useTextsLanguagesFilters()
 
-  return(
-    <div>
-      {/* <input type="radio" /> */}
-    </div>
-  )
-}
+  const usedLanguagesList = usedLanguages.map((language) => {
+    return (
+      <div key={language.from + language.to}>
+        {language.from}-{language.to}
+        <input
+          onChange={(e) => onCheckboxChange(e)}
+          type="checkbox"
+          value={JSON.stringify(language)}
+        />
+      </div>
+    );
+  });
 
-export default TextsLanguagesFilters
+  return <div>{usedLanguagesList}</div>;
+};
+
+export default TextsLanguagesFilters;

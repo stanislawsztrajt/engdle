@@ -6,6 +6,7 @@ import {
   Entity,
   CreateDateColumn,
 } from 'typeorm';
+import { maxLengthText } from '../../../utils/constants';
 
 export class Language {
   public from: string;
@@ -17,10 +18,10 @@ export class Text {
   @PrimaryGeneratedColumn()
   public id!: number;
 
-  @Column({ type: 'varchar', length: 150 })
+  @Column({ type: 'varchar', length: maxLengthText })
   public text: string;
 
-  @Column({ type: 'varchar', length: 150 })
+  @Column({ type: 'varchar', length: maxLengthText })
   public translatedText: string;
 
   @Column({ type: 'json' })

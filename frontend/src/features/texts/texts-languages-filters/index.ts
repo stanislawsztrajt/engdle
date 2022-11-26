@@ -1,1 +1,1 @@
-export { default } from "./texts-languages-filters"
+export { default } from './texts-languages-filters';

@@ -16,4 +16,4 @@ export const textsExtraReducers = (builder: ActionReducerMapBuilder<ItextsInitia
     .addCase(fetchUserTexts.rejected, (state) => {
       state.status = ResponseStatus.FAILED;
     });
-}
+};

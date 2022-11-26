@@ -48,7 +48,7 @@ const useCreateTextForm = () => {
     if (text.text === '') {
       return;
     }
-    
+
     translateText(text);
   };
 
@@ -76,6 +76,7 @@ const useCreateTextForm = () => {
       translatedText: text.text,
     };
 
+    translateText(swappedLanguages);
     setText({ ...text, ...swappedLanguages });
   };
 
@@ -90,6 +91,11 @@ const useCreateTextForm = () => {
       return setError('Text already exists');
     }
 
+    setText({
+      ...text,
+      text: '',
+      translatedText: '',
+    });
     const data = await textsServices.create(text);
     dispatch(addText(data));
     setError('');

@@ -10,7 +10,7 @@ const TextItem: FC<Props> = ({ text }) => {
   const { deleteText, closeText, uncloseText } = useTextItem(text);
 
   return (
-    <div className={`border-4 ${text.isClosed && 'line-through' }`}>
+    <div className={`border-4 ${text.isClosed && 'line-through'}`}>
       <div>{text.id}</div>
       {text.text} - {text.translatedText}
       {text.isClosed ? (
