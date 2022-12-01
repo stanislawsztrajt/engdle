@@ -9,8 +9,8 @@ import { TextsModule } from './modules/texts/texts.module';
 import { User } from './modules/users/entities/user.entity';
 import { Text } from './modules/texts/entities/text.entity';
 
-import * as dotenv from 'dotenv'
-dotenv.config()
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 @Module({
   imports: [

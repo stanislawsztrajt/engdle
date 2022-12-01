@@ -1,4 +1,9 @@
-import { MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/common';
+import {
+  MiddlewareConsumer,
+  Module,
+  NestModule,
+  RequestMethod,
+} from '@nestjs/common';
 import { UsersService } from './users.service';
 import { UsersController } from './users.controller';
 import { User } from './entities/user.entity';
@@ -10,7 +15,7 @@ import { JwtService } from '@nestjs/jwt';
   imports: [TypeOrmModule.forFeature([User])],
   controllers: [UsersController],
   providers: [UsersService, JwtService],
-  exports: [UsersService]
+  exports: [UsersService],
 })
 export class UsersModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
@@ -18,7 +23,7 @@ export class UsersModule implements NestModule {
       .apply(HashPasswordMiddleware)
       .forRoutes(
         { path: 'users', method: RequestMethod.POST },
-        { path: 'users/:id', method: RequestMethod.PATCH }
+        { path: 'users/:id', method: RequestMethod.PATCH },
       );
   }
 }

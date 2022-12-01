@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { FC } from 'react';
 import { Itext } from '../types';
 import useTextItem from './use-text-item';
@@ -8,11 +9,14 @@ interface Props {
 
 const TextItem: FC<Props> = ({ text }) => {
   const { deleteText, closeText, uncloseText } = useTextItem(text);
-
+  
   return (
     <div className={`border-4 ${text.isClosed && 'line-through'}`}>
       <div>{text.id}</div>
       {text.text} - {text.translatedText}
+      <div>
+        {text.context}
+      </div>
       {text.isClosed ? (
         <div onClick={uncloseText}>unclose</div>
       ) : (

@@ -5,14 +5,14 @@ import { UsersModule } from '../users/users.module';
 import { PassportModule } from '@nestjs/passport';
 import { LocalStrategy } from './strategies/local.strategy';
 import { JwtModule, JwtService } from '@nestjs/jwt';
-import * as dotenv from 'dotenv'
+import * as dotenv from 'dotenv';
 
-dotenv.config()
+dotenv.config();
 describe('AuthService', () => {
   let service: AuthService;
 
   beforeEach(async () => {
-    service = new AuthService(AuthService as any, JwtService as any)
+    service = new AuthService(AuthService as any, JwtService as any);
   });
 
   it('should be defined', () => {

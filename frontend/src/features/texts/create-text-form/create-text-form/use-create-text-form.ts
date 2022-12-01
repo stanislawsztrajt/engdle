@@ -1,5 +1,5 @@
 import { debounce } from 'lodash';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import deeplTranslatorServices from 'utils/api/deepl-translator-services';
 import textsServices from 'utils/api/texts-services';
@@ -10,17 +10,24 @@ const useCreateTextForm = () => {
   const dispatch = useDispatch();
   const texts = useSelector(getTexts);
 
+  const createTextInput = useRef<HTMLInputElement>(null);
+
   const [error, setError] = useState('');
   const [text, setText] = useState<IcreateText>({
     text: '',
     translatedText: '',
     language: {
-      from: 'en',
-      to: 'pl',
+      from: 'EN',
+      to: 'PL',
     },
   });
 
   const translateText = async (currentText: IcreateText) => {
+    if (currentText.text === '') {
+      setText({ ...text, translatedText: '' })
+      return;
+    }
+
     const data = await deeplTranslatorServices.translateText(
       currentText.language.from,
       currentText.language.to,
@@ -91,30 +98,28 @@ const useCreateTextForm = () => {
       return setError('Text already exists');
     }
 
+    setError('');
     setText({
       ...text,
       text: '',
       translatedText: '',
     });
+    createTextInput.current?.focus();
     const data = await textsServices.create(text);
     dispatch(addText(data));
-    setError('');
   };
 
   const debouncedTranslateText = useCallback(debounce(translateText, 1000), []);
 
   useEffect(() => {
     setError('');
-    if (text.text === '') {
-      return;
-    }
-
     debouncedTranslateText(text);
   }, [text.text]);
 
   return {
     text,
     error,
+    createTextInput,
     changeLanguageFrom,
     changeLanguageTo,
     setText,

@@ -6,7 +6,7 @@ describe('UsersController', () => {
   let controller: UsersController;
 
   beforeEach(async () => {
-    controller = new UsersController(UsersService as any)
+    controller = new UsersController(UsersService as any);
   });
 
   it('should be defined', () => {

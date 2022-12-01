@@ -10,6 +10,7 @@ export interface Itext {
   text: string;
   translatedText: string;
   language: Ilanguage;
+  context?: string;
   isClosed: boolean;
   createdAt: Date;
   user?: Iuser;
@@ -22,12 +23,13 @@ export interface IcreateText {
 }
 
 export enum SortTypes {
-  ALPHABETICALLY = 'alphabetically',
+  ALPHABETICALLY = 'a-z',
+  UNALPHABETICALLY = 'z-a',
   LATEST = 'latest',
   OLDEST = 'oldest',
 }
 
-export type SortType = SortTypes.ALPHABETICALLY | SortTypes.LATEST | SortTypes.OLDEST;
+export type SortType = SortTypes.ALPHABETICALLY | SortTypes.UNALPHABETICALLY | SortTypes.LATEST | SortTypes.OLDEST;
 
 export const SortTypesList = Object.values(SortTypes);
 

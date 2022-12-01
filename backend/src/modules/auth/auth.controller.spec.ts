@@ -5,7 +5,7 @@ describe('AuthController', () => {
   let controller: AuthController;
 
   beforeEach(async () => {
-    controller = new AuthController(AuthService as any)
+    controller = new AuthController(AuthService as any);
   });
 
   it('should be defined', () => {

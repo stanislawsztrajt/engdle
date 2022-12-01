@@ -11,7 +11,7 @@ import {
 
 const Texts: FC = () => {
   const texts = useSelector(getTexts);
-
+  
   return (
     <main>
       <h1>Your texts</h1>

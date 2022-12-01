@@ -8,13 +8,11 @@ import { User } from '../../modules/users/entities/user.entity';
 
 @Injectable()
 export class SetUserMiddleware implements NestMiddleware {
-  constructor(
-    private jwtService: JwtService
-  ) {}
+  constructor(private jwtService: JwtService) {}
   async use(req: Irequest<Text>, res: Response, next: NextFunction) {
-    if(req.headers.authorization) {
-      const jwt: string = parseJwt(req.headers.authorization)
-      req.body.user = this.jwtService.decode(jwt) as User
+    if (req.headers.authorization) {
+      const jwt: string = parseJwt(req.headers.authorization);
+      req.body.user = this.jwtService.decode(jwt) as User;
     }
     next();
   }

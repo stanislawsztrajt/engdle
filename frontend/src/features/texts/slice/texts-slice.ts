@@ -9,28 +9,33 @@ const TextsSlice = createSlice({
   initialState: textsInitialStateSlice,
   reducers: {
     addText: (state, action: PayloadAction<Itext>) => {
+      state.textsCopy.unshift(action.payload);
       state.texts.unshift(action.payload);
     },
     removeTextById: (state, action: PayloadAction<number>) => {
       const textIndex = state.texts.findIndex((text) => text.id === action.payload);
-      state.texts.splice(textIndex, 1);
       state.textsCopy.splice(textIndex, 1);
+      state.texts.splice(textIndex, 1);
     },
     closeTextById: (state, action: PayloadAction<number>) => {
       const textIndex = state.texts.findIndex((text) => text.id === action.payload);
-      state.texts[textIndex].isClosed = true;
       state.textsCopy[textIndex].isClosed = true;
+      state.texts[textIndex].isClosed = true;
     },
     uncloseTextById: (state, action: PayloadAction<number>) => {
       const textIndex = state.texts.findIndex((text) => text.id === action.payload);
-      state.texts[textIndex].isClosed = false;
       state.textsCopy[textIndex].isClosed = false;
+      state.texts[textIndex].isClosed = false;
     },
     sortTextsBy: (state, action: PayloadAction<SortType>) => {
       switch (action.payload) {
         case SortTypes.ALPHABETICALLY:
           state.textsCopy.sort((a, b) => a.text.localeCompare(b.text));
           state.texts.sort((a, b) => a.text.localeCompare(b.text));
+          break;
+        case SortTypes.UNALPHABETICALLY:
+          state.textsCopy.sort((a, b) => b.text.localeCompare(a.text));
+          state.texts.sort((a, b) => b.text.localeCompare(a.text));
           break;
         case SortTypes.LATEST:
           state.textsCopy.sort((a, b) => +b.id - +a.id);
