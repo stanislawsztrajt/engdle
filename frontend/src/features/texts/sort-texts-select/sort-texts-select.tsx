@@ -15,13 +15,12 @@ const SortTextsSelect: FC = () => {
   });
 
   return (
-    <div>
-      Sort by
+    <div className="p-2">
+      <span className="text-lg">Sort by</span>
       <select
         defaultValue={SortTypes.LATEST}
         onChange={(e) => dispatch(sortTextsBy(e.target.value as SortType))}
-        name=""
-        id=""
+        className="px-2 py-1 ml-2 text-lg border border-gray-500 rounded-full outline-none"
       >
         {optionsList}
       </select>

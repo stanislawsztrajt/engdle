@@ -15,7 +15,7 @@ body {
 }
 
 .button-bg {
-  @apply px-10 pt-2 pb-1 font-normal text-white duration-100 text-lg bg-indigo-500 rounded-full hover:bg-indigo-600
+  @apply px-10 pt-3 pb-2 font-normal text-white duration-100 text-lg bg-indigo-500 rounded-full hover:bg-indigo-600
 }
 
 .button-confirmation {
@@ -23,7 +23,7 @@ body {
 }
 
 .input-underline {
-  @apply w-full px-1 py-1 text-lg border-b-2 outline-none focus:border-indigo-600 duration-100
+  @apply px-2 text-lg border-b-2 outline-none focus:border-indigo-600 duration-100
 }
 
 .dont-break-out {

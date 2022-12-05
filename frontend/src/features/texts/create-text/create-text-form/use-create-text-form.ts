@@ -24,7 +24,7 @@ const useCreateTextForm = () => {
 
   const translateText = async (currentText: IcreateText) => {
     if (currentText.text === '') {
-      setText({ ...text, translatedText: '' })
+      setText((previousText) => ({ ...previousText, translatedText: '' }));
       return;
     }
 
@@ -34,15 +34,15 @@ const useCreateTextForm = () => {
       [currentText.text.toLowerCase()]
     );
 
-    setText({
-      ...text,
+    setText((previousText) => ({
+      ...previousText,
       translatedText: data.text,
       text: currentText.text,
       language: {
         from: currentText.language.from,
         to: currentText.language.to,
       },
-    });
+    }));
   };
 
   const changeLanguageFrom = (languageCode: string) => {
@@ -84,7 +84,7 @@ const useCreateTextForm = () => {
     };
 
     translateText(swappedLanguages);
-    setText({ ...text, ...swappedLanguages });
+    setText((previousText) => ({ ...previousText, ...swappedLanguages }));
   };
 
   const createText = async () => {
@@ -99,18 +99,17 @@ const useCreateTextForm = () => {
     }
 
     setError('');
-    setText({
-      ...text,
+    setText((previousText) => ({
+      ...previousText,
       text: '',
       translatedText: '',
-    });
+    }));
     createTextInput.current?.focus();
     const data = await textsServices.create(text);
     dispatch(addText(data));
   };
 
   const debouncedTranslateText = useCallback(debounce(translateText, 1000), []);
-
   useEffect(() => {
     setError('');
     debouncedTranslateText(text);

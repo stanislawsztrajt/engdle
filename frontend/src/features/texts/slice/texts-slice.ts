@@ -55,11 +55,10 @@ const TextsSlice = createSlice({
           text.translatedText.includes(action.payload.text)
       );
 
-      if (action.payload.languages.length === 0) return
+      if (action.payload.languages.length === 0) return;
       state.texts = state.texts.filter((text) =>
         action.payload.languages.some(
-          (payloadLanguage) =>
-            JSON.stringify(payloadLanguage) === JSON.stringify(text.language)
+          (payloadLanguage) => JSON.stringify(payloadLanguage) === JSON.stringify(text.language)
         )
       );
     },
@@ -67,14 +66,8 @@ const TextsSlice = createSlice({
   extraReducers: textsExtraReducers,
 });
 
-export const {
-  addText,
-  removeTextById,
-  closeTextById,
-  uncloseTextById,
-  sortTextsBy,
-  filterTexts,
-} = TextsSlice.actions;
+export const { addText, removeTextById, closeTextById, uncloseTextById, sortTextsBy, filterTexts } =
+  TextsSlice.actions;
 
 export const getTexts = (state: RootState) => state.texts.texts;
 export const getFiltersTextsOptions = (state: RootState) => state.texts.filterTextsOptions;

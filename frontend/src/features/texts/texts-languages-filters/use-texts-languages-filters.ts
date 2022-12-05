@@ -29,7 +29,7 @@ const useTextsLanguagesFilters = () => {
 
   return {
     usedLanguages,
-    onCheckboxChange
+    onCheckboxChange,
   };
 };
 

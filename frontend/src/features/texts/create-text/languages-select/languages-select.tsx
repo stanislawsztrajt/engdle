@@ -19,7 +19,11 @@ const LanguagesSelect: FC<Props> = (props) => {
     );
   });
 
-  return <select onChange={(e) => props.changeLanguage(e.target.value)}>{languageList}</select>;
+  return (
+    <select className="outline-none" onChange={(e) => props.changeLanguage(e.target.value)}>
+      {languageList}
+    </select>
+  );
 };
 
 export default LanguagesSelect;

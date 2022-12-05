@@ -16,16 +16,30 @@ export class TextsService {
       where: { user: { id: createTextDto.user.id } },
       select: { text: true },
     });
-    if (
-      texts.some(
-        (text) =>
-          text.text.toLowerCase() === createTextDto.text.toLowerCase() &&
-          text.translatedText.toLowerCase() ===
-            createTextDto.translatedText.toLowerCase(),
-      )
-    ) {
-      throw new HttpException({ message: 'Text already exists' }, 400);
+    try {
+      if (
+        texts.some(
+          (text) =>
+            text.text.toLocaleLowerCase() === createTextDto.text.toLocaleLowerCase() &&
+            text.translatedText.toLocaleLowerCase() ===
+              createTextDto.translatedText.toLocaleLowerCase(),
+        )
+      ) {
+        throw new HttpException({ message: 'Text already exists' }, 400);
+      }
+    } catch {
+      if (
+        texts.some(
+          (text) =>
+            text.text === createTextDto.text &&
+            text.translatedText ===
+              createTextDto.translatedText,
+        )
+      ) {
+        throw new HttpException({ message: 'Text already exists' }, 400);
+      }
     }
+    
 
     const newText = this.userRepository.create(createTextDto);
     return this.userRepository.save(newText);
