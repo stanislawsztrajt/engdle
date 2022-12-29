@@ -5,6 +5,7 @@ import { faArrowRightArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { maxLengthText } from 'utils/constans';
 import LanguagesSelect from '../languages-select';
 import useCreateTextForm from './use-create-text-form';
+import { CopyButton } from 'features/ui';
 
 const CreateTextForm: FC = () => {
   const {
@@ -45,13 +46,14 @@ const CreateTextForm: FC = () => {
             className="w-full xl:w-3/4 input-underline"
             placeholder="Text which you want to translate"
           />
-          <div className="w-full mt-4 text-lg text-left border-b-2 cursor-not-allowed xl:w-3/4">
+          <div className="flex justify-between w-full mt-4 text-lg text-left border-b cursor-not-allowed xl:w-3/4">
             <div className="ml-2">
               {text.translatedText || <div className="text-gray-400">Translated text</div>}
             </div>
+            <CopyButton toCopy={text.translatedText}/>
           </div>
           <div className="mt-1">{error}&nbsp;</div>
-          <button onClick={createText} type="button" className="mt-4 button-bg">
+          <button onClick={createText} type="button" className="mt-4 lg:w-1/3 button-bg">
             Save text
           </button>
         </div>

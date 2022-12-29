@@ -8,12 +8,14 @@ import {
   SearchTextInput,
   TextsLanguagesFilters,
 } from 'features/texts';
+import FlashCardBox from 'features/flash-cards/flash-card-box';
 
 const Texts: FC = () => {
   const texts = useSelector(getTexts);
 
   return (
     <main>
+      <FlashCardBox />
       <h1 className="mt-8 text-5xl font-medium text-center">Your texts</h1>
       <section>
         <CreateTextForm />

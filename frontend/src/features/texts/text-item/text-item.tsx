@@ -22,11 +22,11 @@ const TextItem: FC<Props> = ({ text }) => {
           : null}
           
           {text.isClosed ? (
-            <FontAwesomeIcon className='w-5 h-5 text-gray-300 duration-100 hover:text-gray-500' onClick={uncloseText} icon={faClose}/>
+            <FontAwesomeIcon className='w-5 h-5 text-gray-300 duration-100 cursor-pointer hover:text-gray-500' onClick={uncloseText} icon={faClose}/>
           ) : (
-            <FontAwesomeIcon className='w-5 h-5 text-green-300 duration-100 hover:text-green-500' onClick={closeText} icon={faCheck}/>
+            <FontAwesomeIcon className='w-5 h-5 text-green-300 duration-100 cursor-pointer hover:text-green-500' onClick={closeText} icon={faCheck}/>
           )}
-          <FontAwesomeIcon icon={faTrash} className='w-5 h-5 text-red-300 duration-100 hover:text-red-500' onClick={deleteText}/>
+          <FontAwesomeIcon icon={faTrash} className='w-5 h-5 text-red-300 duration-100 cursor-pointer hover:text-red-500' onClick={deleteText}/>
         </div>
         <span className={`text-black ${text.isClosed && 'line-through'}`}>
           {text.text} - {text.translatedText}

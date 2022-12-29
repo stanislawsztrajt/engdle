@@ -1,6 +1,5 @@
-import { IloginForm, IloginResponseData } from '../types';
+import { IloginForm } from '../types';
 import * as Yup from 'yup';
-import axios from 'axios';
 import { Ierror } from 'utils/types/api';
 import { useState } from 'react';
 import Cookies from 'js-cookie';

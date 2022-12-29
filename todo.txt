@@ -10,5 +10,5 @@ to do:
     features:
       - articles (https://rapidapi.com/blog/rapidapi-featured-news-apis/) (https://www.npmjs.com/package/get-random-article) (https://www.npmjs.com/package/@rstacruz/random-article)
       - fiches
-      - logs
+      - notes
       - stories (https://shortstories-api.onrender.com/stories)
