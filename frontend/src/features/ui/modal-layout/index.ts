@@ -1,1 +1,1 @@
-export { default } from './modal-layout'
+export { default } from './modal-layout';

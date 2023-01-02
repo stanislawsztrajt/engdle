@@ -9,7 +9,7 @@ const Login: FC = () => {
   const { initialValues, validationSchema, login, error, loading } = useLogin();
 
   return (
-    <main className="flex justify-center mt-36">
+    <main className="flex justify-center mt-48">
       <div className="flex flex-col items-center justify-center w-11/12 gap-20 xl:w-4/6 xl:flex-row">
         <section className="w-11/12 lg:w-2/3 xl:w-1/2 animate__animated animate__fadeInLeft">
           <Formik

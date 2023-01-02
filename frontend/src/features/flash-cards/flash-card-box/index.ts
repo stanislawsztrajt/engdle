@@ -1,1 +1,1 @@
-export { default } from "./flash-card-box"
+export { default } from './flash-card-box';

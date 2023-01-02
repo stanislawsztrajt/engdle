@@ -50,7 +50,7 @@ const CreateTextForm: FC = () => {
             <div className="ml-2">
               {text.translatedText || <div className="text-gray-400">Translated text</div>}
             </div>
-            <CopyButton toCopy={text.translatedText}/>
+            <CopyButton toCopy={text.translatedText} />
           </div>
           <div className="mt-1">{error}&nbsp;</div>
           <button onClick={createText} type="button" className="mt-4 lg:w-1/3 button-bg">

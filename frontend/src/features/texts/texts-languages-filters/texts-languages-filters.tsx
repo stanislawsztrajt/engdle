@@ -8,9 +8,7 @@ const TextsLanguagesFilters: FC = () => {
     const usedLanguageKey = `used-language-${language.from + language.to}`;
 
     return (
-      <div
-        key={usedLanguageKey}
-      >
+      <div key={usedLanguageKey}>
         <input
           onChange={(e) => onCheckboxChange(e)}
           type="checkbox"
@@ -31,20 +29,16 @@ const TextsLanguagesFilters: FC = () => {
 
   return (
     <>
-      { usedLanguages.length > 0 ?
-      (
-        <div className='flex flex-col items-center justify-center'>
-          <h3 className='text-4xl'>
-            Filters
-          </h3>
+      {usedLanguages.length > 0 ? (
+        <div className="flex flex-col items-center justify-center">
+          <h3 className="text-4xl">Filters</h3>
           <div className="flex flex-row items-center justify-center w-full gap-2 px-2 mt-2 xl:2/3 2xl:w-1/2">
-          {usedLanguagesList}
+            {usedLanguagesList}
           </div>
         </div>
-      )
-      : null }
+      ) : null}
     </>
-  )
+  );
 };
 
 export default TextsLanguagesFilters;

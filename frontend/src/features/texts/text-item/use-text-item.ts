@@ -6,7 +6,7 @@ import { Itext } from '../types';
 
 const useTextItem = (text: Itext) => {
   const dispatch = useDispatch();
-  
+
   const [isContextHidden, setIsContextHidden] = useState(true);
 
   const deleteText = () => {
@@ -26,14 +26,14 @@ const useTextItem = (text: Itext) => {
 
   const toggleContext = () => {
     setIsContextHidden(isContextHidden ? false : true);
-  }
+  };
 
   return {
     deleteText,
     closeText,
     uncloseText,
     toggleContext,
-    isContextHidden
+    isContextHidden,
   };
 };
 

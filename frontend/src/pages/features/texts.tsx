@@ -14,8 +14,8 @@ const Texts: FC = () => {
   const texts = useSelector(getTexts);
 
   return (
-    <main>
-      <FlashCardBox />
+    <main className="mt-36">
+      <FlashCardBox numberOfFlashCards={5} isAutoOpen={true} />
       <h1 className="mt-8 text-5xl font-medium text-center">Your texts</h1>
       <section>
         <CreateTextForm />
@@ -27,7 +27,7 @@ const Texts: FC = () => {
         </div>
         <TextsLanguagesFilters />
       </section>
-      <section className='mt-4'>
+      <section className="mt-4">
         <TextList texts={texts} />
       </section>
     </main>

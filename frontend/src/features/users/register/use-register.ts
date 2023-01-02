@@ -41,8 +41,7 @@ const useRegister = () => {
   const login = async (values: IregisterForm) => {
     setLoading(true);
     try {
-      const { repeatedPassword, ...data } = values;
-      await UsersServices.create(data);
+      await UsersServices.create(values);
 
       navigate('/auth/login');
     } catch (err) {

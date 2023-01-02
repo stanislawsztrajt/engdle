@@ -1,6 +1,5 @@
 const useCopyButton = () => {
-  return {}
-}
+  return {};
+};
 
-export default useCopyButton
-  
+export default useCopyButton;
