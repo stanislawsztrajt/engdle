@@ -26,6 +26,14 @@ body {
   @apply px-2 text-lg border-b-2 outline-none focus:border-indigo-600 duration-100
 }
 
+.hero-box {
+  @apply flex flex-col w-full gap-20 even:lg:flex-row-reverse lg:flex-row xl:w-2/3
+}
+
+.hero-text-element, .hero-image {
+  @apply w-full lg:w-1/2
+}
+
 .dont-break-out {
   overflow-wrap: break-word;
   word-wrap: break-word;

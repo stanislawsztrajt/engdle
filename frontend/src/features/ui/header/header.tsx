@@ -21,10 +21,6 @@ const links = [
     route: '/features/stories',
     name: 'English stories',
   },
-  {
-    route: '/features/notes',
-    name: 'Notes',
-  },
 ];
 
 const Header: FC = () => {
