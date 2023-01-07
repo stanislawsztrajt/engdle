@@ -10,7 +10,6 @@ import { User } from './modules/users/entities/user.entity';
 import { Text } from './modules/texts/entities/text.entity';
 
 import * as dotenv from 'dotenv';
-import { JwtService } from '@nestjs/jwt';
 dotenv.config();
 
 @Module({
@@ -36,6 +35,6 @@ dotenv.config();
     TextsModule,
   ],
   controllers: [AppController],
-  providers: [AppService, JwtService],
+  providers: [AppService],
 })
 export class AppModule {}
