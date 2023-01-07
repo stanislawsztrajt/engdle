@@ -8,7 +8,11 @@ async function bootstrap() {
   app.setGlobalPrefix('api');
   app.useGlobalPipes(new ValidationPipe());
 
-  app.enableCors()
+  app.enableCors({
+    origin: ['http://localhost:3000', 'https://engdle.vercel.app', 'http://engdle.vercel.app'],
+    methods: ['GET', 'POST', 'PATCH', 'DELETE'],
+    credentials: true,
+  });
 
   await app.listen(1337);
 }
