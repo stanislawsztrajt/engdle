@@ -13,6 +13,7 @@ async function bootstrap() {
       'http://localhost:3000',
       'https://engdle.vercel.app'
     ],
+    allowedHeaders: '*',
     methods: ["GET", "POST", "PATCH", "DELETE"],
     credentials: true,
   });
