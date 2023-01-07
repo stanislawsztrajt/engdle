@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 
 import UndrawRemember from '../assets/undraw/undraw_remember.svg'
 import UndrawFlashCards from '../assets/undraw/undraw_flash_cards.svg'
@@ -6,8 +6,21 @@ import UndrawTranslate from '../assets/undraw/undraw_translate.svg'
 import UndrawQutoes from '../assets/undraw/undraw_quotes.svg'
 import { user } from 'utils/constans';
 import { Link } from 'react-router-dom';
+import usersServices from 'utils/api/users-services';
 
 const Index: FC = () => {
+  useEffect(() => {
+    const getIt = async () => {
+      const data = await usersServices.getAll()
+      console.log(data)
+      return data
+    }
+    console.log('getting')
+    const res = getIt()
+    console.log(res)
+    console.log('getting')
+  }, [])
+
   return (
     <main className='flex flex-col items-center p-8 mt-24'>
       <section className='hero-box'>

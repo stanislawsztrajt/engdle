@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import 'assets/styles/global.css';
 import Login from './pages/auth/login';
 import { Route, Routes } from 'react-router-dom';
@@ -11,18 +11,10 @@ import FlashCards from 'pages/features/flash-cards';
 import Quotes from 'pages/features/quotes';
 import Stories from 'pages/features/stories';
 import useGuardRoutes from 'features/auth/guard-routes/use-guard-routes';
-import axios from 'axios';
-import usersServices from 'utils/api/users-services';
 
 const App: FC = () => {
   useGuardRoutes()
-  useEffect(() => {
-    const getIt = async () => {
-      const data = await usersServices.getAll()
-      return data
-    }
-    console.log(getIt())
-  }, [])
+
   return (
     <>
       <Header />
