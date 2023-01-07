@@ -6,10 +6,6 @@ export interface Ilogin {
   password: string;
 }
 
-export interface IloginForm extends Ilogin {
-  isRemember: boolean;
-}
-
 export type IloginResponseData = Iresponse<{
   jwt: string;
   user: Iuser;

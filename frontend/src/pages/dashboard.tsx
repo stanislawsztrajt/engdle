@@ -36,7 +36,7 @@ const cards = [
 const Dashboard: FC = () => {
   const cardsMap = cards.map(card => {
     return (
-      <div key={card.route} className='flex flex-col p-4 text-center border'>
+      <div key={card.route} className='flex flex-col p-4 text-center border rounded-md'>
         <h1 className='text-3xl font-medium'>
           {card.name}
         </h1>

@@ -1,4 +1,4 @@
-import { IloginForm } from '../types';
+import { Ilogin } from '../types';
 import * as Yup from 'yup';
 import { Ierror } from 'utils/types/api';
 import { useState } from 'react';
@@ -6,10 +6,9 @@ import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
 import authServices from 'utils/api/auth-services';
 
-const initialValues: IloginForm = {
+const initialValues: Ilogin = {
   email: '',
   password: '',
-  isRemember: false,
 };
 
 const validationSchema = Yup.object({
@@ -30,17 +29,14 @@ const useLogin = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const login = async (values: IloginForm) => {
+  const login = async (values: Ilogin) => {
     setLoading(true);
     try {
-      const { isRemember, ...loginValues } = values;
-      const data = await authServices.login(loginValues);
+      const data = await authServices.login(values);
 
-      // if the user checked "Remember me", user will not be logged out else user will be logged out after 7 days
-      const expires = isRemember ? 999999999999999 : 7;
 
-      Cookies.set('jwt', data.jwt, { expires });
-      Cookies.set('user', JSON.stringify(data.user), { expires });
+      Cookies.set('jwt', data.jwt, { expires: 7 });
+      Cookies.set('user', JSON.stringify(data.user), { expires: 7 });
 
       navigate('/dashboard');
       navigate(0); // reloading

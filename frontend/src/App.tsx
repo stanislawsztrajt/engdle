@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import 'assets/styles/global.css';
 import Login from './pages/auth/login';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Register from './pages/auth/register';
 import Index from './pages/index';
 import Texts from 'pages/features/texts';
@@ -10,10 +10,13 @@ import { Header } from 'features/ui';
 import FlashCards from 'pages/features/flash-cards';
 import Quotes from 'pages/features/quotes';
 import Stories from 'pages/features/stories';
+import useGuardRoutes from 'features/auth/guard-routes/use-guard-routes';
 
 const App: FC = () => {
+  useGuardRoutes()
+
   return (
-    <Router>
+    <>
       <Header />
       <Routes>
         <Route index element={<Index />}></Route>
@@ -36,7 +39,7 @@ const App: FC = () => {
         </Route>
       </Routes>
       <div className='h-24'></div>
-    </Router>
+    </>
   );
 };
 

@@ -4,4 +4,5 @@ export const logout = () => {
   Cookies.remove('user')
   Cookies.remove('jwt')
   Cookies.remove('dateOfLastVisit')
+  window.location.reload();
 }

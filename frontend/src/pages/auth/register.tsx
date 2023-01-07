@@ -9,7 +9,7 @@ const Register: FC = () => {
   const { initialValues, validationSchema, login, error, loading } = useRegister();
 
   return (
-    <main className="flex justify-center mt-32">
+    <main className="flex justify-center mt-24 xl:mt-48">
       <div className="flex flex-col items-center justify-center w-11/12 gap-20 xl:w-4/6 xl:flex-row">
         <section className="w-11/12 lg:w-2/3 xl:w-1/2 animate__animated animate__fadeInLeft">
           <Formik
@@ -23,10 +23,9 @@ const Register: FC = () => {
                   <Loading />
                 ) : (
                   <Form>
-                    <h1 className="text-4xl">Register to ForumAll</h1>
+                    <h1 className="text-4xl">Register to Engdle</h1>
                     <h2 className="mt-2 font-light text-gray-400">
-                      A meeting or medium where ideas and views on a topic can be exchanged and
-                      others can be helped. It&apos;s all on ForumAll
+                      Application in which you learn words and context.
                     </h2>
 
                     <div className="flex flex-col mt-12">
