@@ -9,10 +9,7 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
 
   app.enableCors({
-    origin: [
-      'http://localhost:3000',
-      'https://engdle.vercel.app',
-    ],
+    origin: true,
     allowedHeaders: ['content-type'],
     methods: ["GET", "POST", "PATCH", "DELETE"],
     credentials: true,
