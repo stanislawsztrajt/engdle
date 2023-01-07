@@ -10,15 +10,7 @@ import usersServices from 'utils/api/users-services';
 
 const Index: FC = () => {
   useEffect(() => {
-    const getIt = async () => {
-      const data = await usersServices.getAll()
-      console.log(data)
-      return data
-    }
-    console.log('getting')
-    const res = getIt()
-    console.log(res)
-    console.log('getting')
+    console.log("test")
   }, [])
 
   return (

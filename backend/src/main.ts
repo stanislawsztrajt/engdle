@@ -11,6 +11,8 @@ async function bootstrap() {
   app.enableCors({
     origin: ['http://localhost:3000', 'https://engdle.vercel.app', 'http://engdle.vercel.app'],
     methods: ['GET', 'POST', 'PATCH', 'DELETE'],
+    allowedHeaders: '*',
+    preflightContinue: true,
     credentials: true,
   });
 
