@@ -21,7 +21,7 @@ const App: FC = () => {
       const data = await usersServices.getAll()
       return data
     }
-    getIt()
+    console.log(getIt())
   }, [])
   return (
     <>
