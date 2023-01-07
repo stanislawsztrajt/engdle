@@ -57,3 +57,16 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
   background-color: darkgrey;
 }
+
+@keyframes rightToLeft {
+  from {
+    @apply left-full;
+  }
+  to {
+    @apply left-0
+  }
+}
+
+.menu-animation {
+  animation: rightToLeft .15s linear 1;
+}

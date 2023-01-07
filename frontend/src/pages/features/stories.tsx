@@ -28,7 +28,7 @@ const Stories: FC = () => {
   }, []);
 
   return (
-    <main className="flex flex-col items-center gap-8 p-4 mt-20 xl:mt-28">
+    <main className="flex flex-col items-center gap-8 p-4 mt-24">
       {firstLoading ? (
         <Loading />
       ) : (

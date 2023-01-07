@@ -14,7 +14,7 @@ const Texts: FC = () => {
   const texts = useSelector(getTexts);
 
   return (
-    <main className="mt-36">
+    <main className="mt-24">
       <FlashCardBox numberOfFlashCards={5} isAutoOpen={true} />
       <h1 className="mt-8 text-5xl font-medium text-center">Your texts</h1>
       <section>

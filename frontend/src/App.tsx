@@ -35,6 +35,7 @@ const App: FC = () => {
           <Route path="notes" element={<Texts />}></Route>
         </Route>
       </Routes>
+      <div className='h-24'></div>
     </Router>
   );
 };

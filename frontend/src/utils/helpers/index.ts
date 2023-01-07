@@ -10,4 +10,4 @@ export const copy = (toCopy: string) => {
     showConfirmButton: false,
     timer: 750,
   });
-};
+}

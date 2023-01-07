@@ -32,7 +32,7 @@ const useFlashCardBox = ({ numberOfFlashCards, isAutoOpen }: FlashCardProps) => 
 
       drawnTexts.push(texts[drawnIndex]);
     }
-    console.log(drawnTexts);
+
     setFlashCardTexts(drawnTexts);
     setIsModalOpen(true);
   };
