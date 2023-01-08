@@ -8,6 +8,8 @@ async function bootstrap() {
   app.enableCors(
     {
       preflightContinue: true,
+      origin: '*',
+      methods: '*',
       allowedHeaders: '*'
     }
   );
