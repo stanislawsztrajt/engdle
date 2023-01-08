@@ -10,7 +10,7 @@ export interface IloginResponse {
 
 class AuthServices {
   async login(user: { email: string; password: string }): Promise<IloginResponse> {
-    const { data } = await axios.post(`${url}/login`, user);
+    const { data } = await axios.post(`${url}/login`, user, { headers: { 'Access-Control-Allow-Origin': '*' } });
     return data;
   }
 }
