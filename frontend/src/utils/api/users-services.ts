@@ -6,13 +6,7 @@ const url = `${process.env.REACT_APP_API_URL}/users`;
 
 class UsersServices {
   async getAll(): Promise<Iuser[]> {
-    const { data } = await axios.get(url, {
-      headers: {
-        'Access-Control-Allow-Origin': "*",
-        'Access-Control-Allow-Methods': "POST, GET, OPTIONS, DELETE, PUT",
-        'Access-Control-Allow-Headers': "append,delete,entries,foreach,get,has,keys,set,values,Authorization"
-      }
-    });
+    const { data } = await axios.get(url);
     return data;
   }
 
