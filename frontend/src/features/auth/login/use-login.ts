@@ -41,6 +41,8 @@ const useLogin = () => {
       navigate('/dashboard');
       navigate(0); // reloading
     } catch (err) {
+      console.log(err)
+      console.log(JSON.parse(JSON.stringify(err)))
       const { response } = err as Ierror;
       setError(response.data.message);
     }
