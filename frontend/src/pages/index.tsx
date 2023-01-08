@@ -10,7 +10,7 @@ import usersServices from 'utils/api/users-services';
 
 const Index: FC = () => {
   useEffect(() => {
-    console.log("test2")
+    console.log("test 3")
     console.log(usersServices.getAll())
   }, [])
 
