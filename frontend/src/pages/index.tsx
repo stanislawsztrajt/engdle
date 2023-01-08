@@ -6,10 +6,12 @@ import UndrawTranslate from '../assets/undraw/undraw_translate.svg'
 import UndrawQutoes from '../assets/undraw/undraw_quotes.svg'
 import { user } from 'utils/constans';
 import { Link } from 'react-router-dom';
+import usersServices from 'utils/api/users-services';
 
 const Index: FC = () => {
   useEffect(() => {
     console.log("test")
+    console.log(usersServices.getAll())
   }, [])
 
   return (
