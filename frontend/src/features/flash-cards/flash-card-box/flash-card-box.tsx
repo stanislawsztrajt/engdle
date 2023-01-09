@@ -103,7 +103,7 @@ const FlashCardBox: FC<FlashCardProps> = (props) => {
                     Back
                   </button>
                   <button className="button-bg" onClick={increaseCurrentTextIndex}>
-                    Next
+                    {currentTextIndex === props.numberOfFlashCards -1 ? 'End' : 'Next'}
                   </button>
                 </div>
               </>

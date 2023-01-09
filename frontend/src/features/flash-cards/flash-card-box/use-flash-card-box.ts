@@ -17,6 +17,25 @@ const useFlashCardBox = ({ numberOfFlashCards, isAutoOpen }: FlashCardProps) => 
 
   const [isFinalResult, setIsFinalResult] = useState(false);
   const [correctness, setCorrectness] = useState(0);
+  const [isTried, setIsTried] = useState(false)
+
+  const resetCurrentState = () => {
+    setTranslatedText('')
+    setIsCorrectAnswerShow(false)
+    setResult(null)
+    setIsTried(false)
+  }
+
+  const resetState = () => {
+    setFlashCardTexts([])
+    setCurrentTextIndex(0)
+    setTranslatedText('')
+    setResult(null)
+    setIsModalOpen(false)
+    setIsCorrectAnswerShow(false)
+    setIsFinalResult(false)
+    setCorrectness(0)
+  };
 
   const drawRandomTexts = () => {
     const drawnTexts: Itext[] = [];
@@ -56,41 +75,36 @@ const useFlashCardBox = ({ numberOfFlashCards, isAutoOpen }: FlashCardProps) => 
     drawRandomTexts();
   }, [texts]);
 
-  useEffect(() => {
-    if (currentTextIndex === flashCardTexts.length - 1) {
-      setIsFinalResult(true);
-    }
-  }, [result, currentTextIndex]);
-
-  const resetState = () => {
-    setTranslatedText('');
-    setResult(null);
-    setIsCorrectAnswerShow(false);
-  };
-
   const increaseCurrentTextIndex = () => {
-    if (currentTextIndex >= numberOfFlashCards - 1) return;
-    resetState();
+    if (currentTextIndex >= numberOfFlashCards - 1) {
+      setIsFinalResult(true);
+      return
+    }
+
+    resetCurrentState()
     setCurrentTextIndex(currentTextIndex + 1);
   };
 
   const decreaseCurrentTextIndex = () => {
     if (currentTextIndex <= 0) return;
-    resetState();
+    resetCurrentState()
     setCurrentTextIndex(currentTextIndex - 1);
   };
 
   const checkTranslatedTextCorrectness = () => {
     if (flashCardTexts[currentTextIndex].translatedText === translatedText.toLowerCase()) {
       setResult(true);
+      if (isCorrectAnswerShow || isTried) return
       setCorrectness(correctness + 1);
     } else {
       setResult(false);
     }
+    setIsTried(true)
   };
 
   const closeFlashCardsBox = () => {
     setIsModalOpen(false);
+    resetState()
   };
 
   return {
