@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { user } from 'utils/constans';
 
-const loggedRoutes = ['dashboard', 'flash-cards', 'quotes', 'stories', 'texts'];
+const loggedRoutes = ['dashboard', 'flash-cards', 'texts'];
 
 const notLoggegdRoutes = ['login', 'register'];
 
