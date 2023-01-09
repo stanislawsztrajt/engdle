@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import deeplTranslatorServices from 'utils/api/deepl-translator-services';
 import textsServices from 'utils/api/texts-services';
 import { addText, getTexts } from '../../slice/texts-slice';
-import { IcreateText } from '../../types';
+import { IcreateText, Itext } from '../../types';
 
 const useCreateTextForm = () => {
   const dispatch = useDispatch();
@@ -12,6 +12,8 @@ const useCreateTextForm = () => {
 
   const createTextInput = useRef<HTMLInputElement>(null);
 
+  const [createLoading, setCreateLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [text, setText] = useState<IcreateText>({
     text: '',
@@ -23,8 +25,10 @@ const useCreateTextForm = () => {
   });
 
   const translateText = async (currentText: IcreateText) => {
+    setLoading(true);
     if (currentText.text === '') {
       setText((previousText) => ({ ...previousText, translatedText: '' }));
+      setLoading(false);
       return;
     }
 
@@ -43,6 +47,8 @@ const useCreateTextForm = () => {
         to: currentText.language.to,
       },
     }));
+
+    setLoading(false);
   };
 
   const changeLanguageFrom = (languageCode: string) => {
@@ -88,9 +94,10 @@ const useCreateTextForm = () => {
   };
 
   const createText = async () => {
+    setCreateLoading(true);
     if (
       texts.some(
-        (prevText) =>
+        (prevText: Itext) =>
           prevText.text.toLocaleLowerCase() === text.text.toLocaleLowerCase() &&
           prevText.translatedText.toLocaleLowerCase() === text.translatedText.toLocaleLowerCase()
       )
@@ -107,6 +114,7 @@ const useCreateTextForm = () => {
     createTextInput.current?.focus();
     const data = await textsServices.create(text);
     dispatch(addText(data));
+    setCreateLoading(false);
   };
 
   const debouncedTranslateText = useCallback(debounce(translateText, 1000), []);
@@ -119,6 +127,8 @@ const useCreateTextForm = () => {
     text,
     error,
     createTextInput,
+    loading,
+    createLoading,
     changeLanguageFrom,
     changeLanguageTo,
     setText,

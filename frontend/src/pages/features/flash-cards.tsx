@@ -7,6 +7,19 @@ const FlashCards: FC = () => {
   const [numberOfFlashCards, setNumberOfFlashCards] = useState(1);
   const texts = useSelector(getTexts);
 
+  const handleNumberOfFlashCards = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let value = parseInt(e.target.value);
+    if (value === 0) {
+      value = 1;
+    }
+
+    if (value >= texts.length) {
+      value = texts.length - 1;
+    }
+
+    setNumberOfFlashCards(value);
+  };
+
   return (
     <main className="flex flex-col items-center justify-center h-screen">
       {texts.length === 0 ? (
@@ -15,11 +28,11 @@ const FlashCards: FC = () => {
         <div>
           <div className="flex flex-row">
             <input
-              className="text-center input-underline"
+              className="text-center input-underline w-36"
               min={1}
               max={texts.length - 1}
               value={numberOfFlashCards}
-              onChange={(e) => setNumberOfFlashCards(+e.target.value)}
+              onChange={(e) => handleNumberOfFlashCards(e)}
               type="number"
               placeholder="Number of flash cards"
             />

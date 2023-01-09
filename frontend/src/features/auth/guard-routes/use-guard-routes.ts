@@ -1,36 +1,27 @@
-import { useEffect } from "react"
-import { useNavigate } from "react-router-dom"
-import { user } from "utils/constans";
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { user } from 'utils/constans';
 
-const loggedRoutes = [
-  "dashboard",
-  "flash-cards",
-  "quotes",
-  "stories",
-  "texts"
-];
+const loggedRoutes = ['dashboard', 'flash-cards', 'quotes', 'stories', 'texts'];
 
-const notLoggegdRoutes = [
-  "login",
-  "register"
-];
+const notLoggegdRoutes = ['login', 'register'];
 
 const useGuardRoutes = () => {
-  const router = useNavigate()
+  const router = useNavigate();
 
   useEffect(() => {
-    loggedRoutes.forEach(route => {
+    loggedRoutes.forEach((route) => {
       if (window.location.href.includes(route) && !user) {
-        router('/auth/login')
+        router('/auth/login');
       }
-    })
+    });
 
-    notLoggegdRoutes.forEach(route => {
+    notLoggegdRoutes.forEach((route) => {
       if (window.location.href.includes(route) && user) {
-        router('/dashboard')
+        router('/dashboard');
       }
-    })
-  }, [router])
-}
+    });
+  }, [router]);
+};
 
-export default useGuardRoutes
+export default useGuardRoutes;

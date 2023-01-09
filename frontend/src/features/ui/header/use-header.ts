@@ -1,18 +1,18 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const useHeader = () => {
-  const router = useNavigate()
+  const router = useNavigate();
 
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    setIsMenuOpen(false)
-  }, [router])
+    setIsMenuOpen(false);
+  }, [router]);
 
   return {
     isMenuOpen,
-    setIsMenuOpen
+    setIsMenuOpen,
   };
 };
 

@@ -49,7 +49,7 @@ const useFlashCardBox = ({ numberOfFlashCards, isAutoOpen }: FlashCardProps) => 
 
     const dateOfLastVisit = Cookies.get('dateOfLastVisit') as string;
     if (currentDate === dateOfLastVisit) return;
-    if (texts.length === 0) return;
+    if (texts.length < 5) return;
 
     Cookies.set('dateOfLastVisit', currentDate);
 
@@ -60,7 +60,7 @@ const useFlashCardBox = ({ numberOfFlashCards, isAutoOpen }: FlashCardProps) => 
     if (currentTextIndex === flashCardTexts.length - 1) {
       setIsFinalResult(true);
     }
-  }, [result]);
+  }, [result, currentTextIndex]);
 
   const resetState = () => {
     setTranslatedText('');

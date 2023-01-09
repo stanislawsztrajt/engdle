@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRightToBracket, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { user } from 'utils/constans';
-import Hamburger from 'hamburger-react'
+import Hamburger from 'hamburger-react';
 import useHeader from './use-header';
 import { logout } from 'utils/helpers/user';
 
@@ -27,12 +27,9 @@ const links = [
 ];
 
 const Header: FC = () => {
-  const {
-    isMenuOpen,
-    setIsMenuOpen
-  } = useHeader()
+  const { isMenuOpen, setIsMenuOpen } = useHeader();
 
-  const linksMap = links.map(link => {
+  const linksMap = links.map((link) => {
     return (
       <li key={link.name} className="ml-2 text-gray-800 duration-100 hover:text-black">
         <Link to={link.route}>{link.name}</Link>
@@ -87,7 +84,7 @@ const Header: FC = () => {
                 </Link>
               </>
             )}
-            <div className='flex ml-2 md:ml-8 lg:hidden'>
+            <div className="flex ml-2 md:ml-8 lg:hidden">
               <Hamburger toggled={isMenuOpen} toggle={setIsMenuOpen} />
             </div>
           </div>
@@ -101,13 +98,13 @@ const Header: FC = () => {
           </div>
         </div>
       </nav>
-      { isMenuOpen ? (
-        <div className='fixed w-screen h-screen bg-white lg:hidden menu-animation'>
+      {isMenuOpen ? (
+        <div className="fixed w-screen h-screen bg-white lg:hidden menu-animation">
           <ul className="flex flex-col items-center justify-center gap-20 text-3xl underline h-3/4">
             {linksMap}
           </ul>
         </div>
-      ) : null }
+      ) : null}
     </>
   );
 };

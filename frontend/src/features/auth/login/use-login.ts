@@ -34,15 +34,14 @@ const useLogin = () => {
     try {
       const data = await authServices.login(values);
 
-
       Cookies.set('jwt', data.jwt, { expires: 7 });
       Cookies.set('user', JSON.stringify(data.user), { expires: 7 });
 
       navigate('/dashboard');
       navigate(0); // reloading
     } catch (err) {
-      console.log(err)
-      console.log(JSON.parse(JSON.stringify(err)))
+      console.log(err);
+      console.log(JSON.parse(JSON.stringify(err)));
       const { response } = err as Ierror;
       setError(response.data.message);
     }

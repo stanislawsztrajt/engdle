@@ -13,7 +13,7 @@ import Stories from 'pages/features/stories';
 import useGuardRoutes from 'features/auth/guard-routes/use-guard-routes';
 
 const App: FC = () => {
-  useGuardRoutes()
+  useGuardRoutes();
 
   return (
     <>
@@ -38,7 +38,7 @@ const App: FC = () => {
           <Route path="notes" element={<Texts />}></Route>
         </Route>
       </Routes>
-      <div className='h-24'></div>
+      <div className="h-24"></div>
     </>
   );
 };
