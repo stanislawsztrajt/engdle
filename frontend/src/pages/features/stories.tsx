@@ -29,6 +29,7 @@ const Stories: FC = () => {
 
   return (
     <main className="flex flex-col items-center gap-8 p-4 mt-24">
+      <h1 className='text-5xl'>Stories</h1>
       {firstLoading ? (
         <Loading />
       ) : (
