@@ -65,11 +65,9 @@ const useFlashCardBox = ({ numberOfFlashCards, isAutoOpen }: FlashCardProps) => 
       month: date.getMonth(),
       day: date.getDate(),
     });
-
     const dateOfLastVisit = Cookies.get('dateOfLastVisit') as string;
     if (currentDate === dateOfLastVisit) return;
     if (texts.length < 5) return;
-
     Cookies.set('dateOfLastVisit', currentDate);
 
     drawRandomTexts();
