@@ -39,7 +39,7 @@ const App: FC = () => {
         </Route>
       </Routes>
       <div className="h-24"></div>
-        <div className='text-center'>Contact with me - stanislawsztrajt@wp.pl</div>
+        <div className='text-center mt-96'>Contact with me - stanislawsztrajt@wp.pl</div>
         <div className='mt-2 text-center text-indigo-600 underline hover:text-indigo-700'><a href="https://github.com/stanislawsztrajt/engdle">App repo</a></div>
       <div className="h-6"></div>
     </>
