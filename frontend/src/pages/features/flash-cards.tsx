@@ -1,11 +1,11 @@
 import FlashCardBox from 'features/flash-cards/flash-card-box/flash-card-box';
-import { getTexts } from 'features/texts/slice/texts-slice';
+import { getTextsCopy } from 'features/texts/slice/texts-slice';
 import React, { FC, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 const FlashCards: FC = () => {
   const [numberOfFlashCards, setNumberOfFlashCards] = useState(1);
-  const texts = useSelector(getTexts);
+  const texts = useSelector(getTextsCopy);
 
   const handleNumberOfFlashCards = (e: React.ChangeEvent<HTMLInputElement>) => {
     let value = parseInt(e.target.value);

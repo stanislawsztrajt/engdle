@@ -70,6 +70,7 @@ export const { addText, removeTextById, closeTextById, uncloseTextById, sortText
   TextsSlice.actions;
 
 export const getTexts = (state: RootState) => state.texts.texts;
+export const getTextsCopy = (state: RootState) => state.texts.textsCopy;
 export const getFiltersTextsOptions = (state: RootState) => state.texts.filterTextsOptions;
 export const getStatus = (state: RootState) => state.texts.status;
 export const getUsedLanguages = (state: RootState) => {
