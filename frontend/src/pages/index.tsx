@@ -66,7 +66,7 @@ const Index: FC = () => {
           <h4 className="text-7xl">English quotes and stories</h4>
           <p className="mt-4 text-xl">
             Read familiar quotes and stories to learn new words and sentence context. Quotes - API
-            ninjas and API shortstories.
+            ninjas, philosophy quotes API, shortstories API.
           </p>
         </div>
         <div className="hero-image">
