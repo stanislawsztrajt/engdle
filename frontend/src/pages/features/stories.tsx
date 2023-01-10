@@ -39,7 +39,7 @@ const Stories: FC = () => {
             className="w-full lg:w-1/2 xl:w-1/4 button-bg"
             onClick={fetchNextStories}
           >
-            {loading ? 'Loading...' : 'Fetch next quotes'}
+            {loading ? 'Loading...' : 'Fetch next stories'}
           </button>
         </>
       )}
