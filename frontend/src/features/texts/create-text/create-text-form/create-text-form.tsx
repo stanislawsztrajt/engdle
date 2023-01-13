@@ -28,7 +28,10 @@ const CreateTextForm: FC = () => {
     <div className="mt-12">
       <h2 className="text-3xl text-center">Translate and Save your texts</h2>
       <div className="flex justify-center w-full">
-        <div className="flex flex-col items-center justify-center w-full p-2 lg:w-3/4 xl:w-2/3 2xl:w-1/2">
+        <form onSubmit={(e) => {
+          e.preventDefault()
+          createText()
+        }} className="flex flex-col items-center justify-center w-full p-2 lg:w-3/4 xl:w-2/3 2xl:w-1/2">
           <div className="flex justify-between w-full gap-4 p-2 mt-4 lg:w-3/4 xl:w-2/3 2xl:w-1/3">
             <LanguagesSelect
               disabled={isLoading}
@@ -81,13 +84,12 @@ const CreateTextForm: FC = () => {
           <div className="mt-1">{error}&nbsp;</div>
           <button
             disabled={isLoading}
-            onClick={createText}
             type="button"
             className="mt-4 lg:w-1/3 button-bg"
           >
             {isLoading ? <ComponentLoading /> : 'Save text'}
           </button>
-        </div>
+        </form>
       </div>
     </div>
   );

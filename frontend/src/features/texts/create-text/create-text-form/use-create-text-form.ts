@@ -111,7 +111,6 @@ const useCreateTextForm = () => {
       text: '',
       translatedText: '',
     }));
-    createTextInput.current?.focus();
     const data = await textsServices.create(text);
     dispatch(addText(data));
     setCreateLoading(false);
@@ -122,6 +121,10 @@ const useCreateTextForm = () => {
     setError('');
     debouncedTranslateText(text);
   }, [text.text]);
+
+  useEffect(() => {
+    createTextInput.current?.focus();
+  }, [createLoading, loading])
 
   return {
     text,
