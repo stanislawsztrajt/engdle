@@ -84,7 +84,7 @@ const CreateTextForm: FC = () => {
           <div className="mt-1">{error}&nbsp;</div>
           <button
             disabled={isLoading}
-            type="button"
+            type='submit'
             className="mt-4 lg:w-1/3 button-bg"
           >
             {isLoading ? <ComponentLoading /> : 'Save text'}
