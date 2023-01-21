@@ -18,8 +18,8 @@ const CreateTextForm: FC = () => {
     changeLanguageFrom,
     changeLanguageTo,
     setText,
-    createText,
     swapLanguages,
+    handleCreateText
   } = useCreateTextForm();
 
   const isLoading: boolean = loading || createLoading
@@ -30,7 +30,7 @@ const CreateTextForm: FC = () => {
       <div className="flex justify-center w-full">
         <form onSubmit={(e) => {
           e.preventDefault()
-          createText()
+          handleCreateText()
         }} className="flex flex-col items-center justify-center w-full p-2 lg:w-3/4 xl:w-2/3 2xl:w-1/2">
           <div className="flex justify-between w-full gap-4 p-2 mt-4 lg:w-3/4 xl:w-2/3 2xl:w-1/3">
             <LanguagesSelect

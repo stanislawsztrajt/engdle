@@ -12,6 +12,7 @@ const useCreateTextForm = () => {
 
   const createTextInput = useRef<HTMLInputElement>(null);
 
+  const [isDebounced, setIsDebounced] = useState(false);
   const [createLoading, setCreateLoading] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -23,6 +24,7 @@ const useCreateTextForm = () => {
       to: 'PL',
     },
   });
+
 
   const translateText = async (currentText: IcreateText) => {
     setLoading(true);
@@ -40,8 +42,8 @@ const useCreateTextForm = () => {
 
     setText((previousText) => ({
       ...previousText,
-      translatedText: data.text,
-      text: currentText.text,
+      translatedText: data.text.toLowerCase(),
+      text: currentText.text.toLowerCase(),
       language: {
         from: currentText.language.from,
         to: currentText.language.to,
@@ -49,6 +51,7 @@ const useCreateTextForm = () => {
     }));
 
     setLoading(false);
+    setIsDebounced(true)
   };
 
   const changeLanguageFrom = (languageCode: string) => {
@@ -116,9 +119,15 @@ const useCreateTextForm = () => {
     setCreateLoading(false);
   };
 
+  const handleCreateText = () => {
+    if (!isDebounced) return
+    createText()
+  }
+
   const debouncedTranslateText = useCallback(debounce(translateText, 1000), []);
   useEffect(() => {
     setError('');
+    setIsDebounced(false)
     debouncedTranslateText(text);
   }, [text.text]);
 
@@ -135,8 +144,8 @@ const useCreateTextForm = () => {
     changeLanguageFrom,
     changeLanguageTo,
     setText,
-    createText,
     swapLanguages,
+    handleCreateText
   };
 };
 
