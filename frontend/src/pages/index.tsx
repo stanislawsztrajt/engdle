@@ -12,7 +12,7 @@ const Index: FC = () => {
     <main className="flex flex-col items-center p-8 mt-24">
       <section className="hero-box">
         <div className="hero-text-element">
-          <h1 className="font-semibold text-8xl">Storing the texts in your mind</h1>
+          <h1 className="font-semibold text-7xl">Storing the texts in your mind</h1>
           <p className="mt-4 text-2xl">
             Write your texts and translate them with the help of one of the best translators - DeepL
             API, texts are saved in the database and used in later functionalities.
@@ -25,10 +25,10 @@ const Index: FC = () => {
             ) : (
               <>
                 <Link to={'/auth/login'}>
-                  <button className="button">Login</button>
+                  <button className="button">Sign in</button>
                 </Link>
                 <Link to={'/auth/register'}>
-                  <button className="button-bg">Register</button>
+                  <button className="button-bg">Sign up</button>
                 </Link>
               </>
             )}
@@ -41,7 +41,7 @@ const Index: FC = () => {
 
       <section className="mt-20 hero-box">
         <div className="hero-text-element">
-          <h2 className="text-7xl">Translating and saving texts</h2>
+          <h2 className="text-6xl">Translating and saving texts</h2>
           <p className="mt-4 text-xl">
             Translate your texts using deepl api and write them down to learn from them.
           </p>
@@ -53,7 +53,7 @@ const Index: FC = () => {
 
       <section className="mt-20 hero-box">
         <div className="hero-text-element">
-          <h3 className="text-7xl">Flash cards</h3>
+          <h3 className="text-6xl">Flash cards</h3>
           <p className="mt-4 text-xl">Learn using flashcards, draw words and use flash cards.</p>
         </div>
         <div className="hero-image">
@@ -63,7 +63,7 @@ const Index: FC = () => {
 
       <section className="mt-20 hero-box">
         <div className="hero-text-element">
-          <h4 className="text-7xl">English quotes and stories</h4>
+          <h4 className="text-6xl">English quotes and stories</h4>
           <p className="mt-4 text-xl">
             Read familiar quotes and stories to learn new words and sentence context. Quotes - API
             ninjas, philosophy quotes API, shortstories API.

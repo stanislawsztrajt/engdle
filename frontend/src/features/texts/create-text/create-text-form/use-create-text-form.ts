@@ -105,6 +105,7 @@ const useCreateTextForm = () => {
           prevText.translatedText.toLocaleLowerCase() === text.translatedText.toLocaleLowerCase()
       )
     ) {
+      setCreateLoading(false);
       return setError('Text already exists');
     }
 
@@ -145,7 +146,9 @@ const useCreateTextForm = () => {
     changeLanguageTo,
     setText,
     swapLanguages,
-    handleCreateText
+    handleCreateText,
+    translateText,
+    createText
   };
 };
 
